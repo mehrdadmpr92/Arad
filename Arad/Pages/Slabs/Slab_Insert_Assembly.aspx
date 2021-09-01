@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
+    <%-- GitHub --%>
     <style>
         .info p {
             text-align: center;
@@ -12,7 +12,9 @@
             font-weight: 600;
             font-size: 15px;
             margin-top: 2px
-        }
+        }   
+
+        test
 
 
 

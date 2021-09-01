@@ -112,6 +112,7 @@
     <Content Include="charts-chartjs.html" />
     <Content Include="charts-flot.html" />
     <Content Include="charts-peity.html" />
+    <Content Include="Components\FileUpload\FileUpload.ascx" />
     <Content Include="Components\Message\Message.ascx" />
     <Content Include="favicon.ico" />
     <Content Include="font-fontawesome.html" />
@@ -2132,6 +2133,12 @@
   <ItemGroup>
     <Compile Include="App_Code\Connection.vb" />
     <Compile Include="App_Code\Pages\Slabs.vb" />
+    <Compile Include="Components\FileUpload\FileUpload.ascx.designer.vb">
+      <DependentUpon>FileUpload.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Components\FileUpload\FileUpload.ascx.vb">
+      <DependentUpon>FileUpload.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Components\Message\Message.ascx.designer.vb">
       <DependentUpon>Message.ascx</DependentUpon>
     </Compile>
