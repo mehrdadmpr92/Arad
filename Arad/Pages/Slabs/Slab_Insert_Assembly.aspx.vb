@@ -19,7 +19,8 @@ Public Class Slab_Insert_Assembly
             Dim err As String = slab.Slab_Assembly_Insert(SlabId_Txt.Text, PerSlabName_Txt.Text,
                                                       SlabName_Txt.Text, SlabDesc_Txt.Text)
 
-            If err = 0 Then
+            If SlabFile_File.HasFile Then
+                If err = 0 Then
                 SlabId_Txt.Text = ""
                 PerSlabName_Txt.Text = ""
                 SlabName_Txt.Text = ""
