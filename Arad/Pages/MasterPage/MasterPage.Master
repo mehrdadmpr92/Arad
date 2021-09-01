@@ -1,0 +1,340 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="MasterPage.Master.vb" Inherits="Arad.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>آراد</title>
+
+
+    <link rel="apple-touch-icon" href="../../apple-icon.png" />
+    <link rel="shortcut icon" href="../../favicon.ico" />
+
+    <link rel="stylesheet" href="../../vendors/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../vendors/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../../vendors/themify-icons/css/themify-icons.css" />
+    <link rel="stylesheet" href="../../vendors/flag-icon-css/css/flag-icon.min.css" />
+    <link rel="stylesheet" href="../../vendors/selectFX/css/cs-skin-elastic.css" />
+    <link rel="stylesheet" href="../../vendors/jqvmap/dist/jqvmap.min.css" />
+
+
+    <link rel="stylesheet" href="../../assets/css/style.css" />
+
+
+
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    
+</head>
+<body>
+    <form id="form1" runat="server">
+        <aside id="left-panel" class="left-panel">
+            <nav class="navbar navbar-expand-sm navbar-default">
+                <div class="navbar-header">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand" href="#">
+                        <img src="../../images/logo1.png" alt="Logo" /></a>
+                    <a class="navbar-brand hidden" href="./">
+                        <img src="../../images/logo2.png" alt="Logo" /></a>
+                </div>
+
+                <div id="main-menu" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav p-0">
+                        <li class="menu-item-has-children dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="menu-icon fa fa-laptop"></i>تولید
+                            </a>
+                            <ul class="sub-menu children dropdown-menu" style="font-family: 'B Nasim'">
+                                <li><i class="fa fa-puzzle-piece"></i><a href="../Slabs/Slab_Insert_Assembly.aspx">لیست کمبود</a></li>
+                                <li><i class="fa fa-id-badge"></i><a href="../../ui-badges.html">"برنامه ریزی"</a></li>
+                                <li><i class="fa fa-bars"></i><a href="ui-tabs.html">سفارش داخلی</a></li>
+                                <li><i class="fa fa-share-square-o"></i><a href="ui-social-buttons.html">مشاهده تمامی قطعات</a></li>
+                                <li><i class="fa fa-id-card-o"></i><a href="ui-cards.html">گزارشات</a></li>
+                                <li><i class="fa fa-exclamation-triangle"></i><a href="ui-alerts.html">مدیر تولید</a></li>
+                                <li><i class="fa fa-spinner"></i><a href="ui-progressbar.html">فرمن کارگاه</a></li>
+                                <li><i class="fa fa-fire"></i><a href="ui-modals.html">شماره سریال</a></li>
+                                <li><i class="fa fa-book"></i><a href="ui-switches.html">انبار</a></li>
+                                <li><i class="fa fa-th"></i><a href="ui-grids.html">کف کارگاه</a></li>
+                                <li><i class="fa fa-file-word-o"></i><a href="ui-typgraphy.html">ثابت ها</a></li>
+                                <li><i class="fa fa-file-word-o"></i><a href="ui-typgraphy.html">شاخص های تولید</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="menu-item-has-children dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="menu-icon fa fa-laptop"></i>فنی و مهندسی
+                            </a>
+                            <ul class="sub-menu children dropdown-menu">
+
+                                <li><i class="fa fa-puzzle-piece"></i><a href="ui-buttons.html">تمامی قطعات</a></li>
+                                <li><i class="fa fa-id-badge"></i><a href="ui-badges.html">مراحل ساخت</a></li>
+                                <li><i class="fa fa-bars"></i><a href="ui-tabs.html">محصولات(فنی و مهندسی)</a></li>
+                                <li><i class="fa fa-share-square-o"></i><a href="ui-social-buttons.html">گزارشات</a></li>
+                                <li><i class="fa fa-id-card-o"></i><a href="ui-cards.html">(ثابتها(فنی و مهندسی</a></li>
+                                <li><i class="fa fa-exclamation-triangle"></i><a href="ui-alerts.html">تغییرات طراحی</a></li>
+                                <li><i class="fa fa-spinner"></i><a href="ui-progressbar.html">اقدام اصلاحی</a></li>
+                                <li><i class="fa fa-fire"></i><a href="ui-modals.html">Modals</a></li>
+                                <li><i class="fa fa-book"></i><a href="ui-switches.html">Switches</a></li>
+                                <li><i class="fa fa-th"></i><a href="ui-grids.html">Grids</a></li>
+                                <li><i class="fa fa-file-word-o"></i><a href="ui-typgraphy.html">Typography</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-has-children dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="menu-icon fa fa-table"></i>مدیر فنی و مهندسی
+                            </a>
+                            <ul class="sub-menu children dropdown-menu">
+                                <li><i class="fa fa-table"></i><a href="tables-basic.html">بررسی قطعات</a></li>
+                                <li><i class="fa fa-table"></i><a href="tables-data.html">بررسی مراحل ساخت</a></li>
+                                <li><i class="fa fa-table"></i><a href="tables-data.html">درخواست کالا از انبار</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-has-children dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="menu-icon fa fa-th"></i>فروش
+                            </a>
+                            <ul class="sub-menu children dropdown-menu">
+                                <li><i class="menu-icon fa fa-th"></i><a href="forms-basic.html">لیست کمبود</a></li>
+                                <li><i class="menu-icon fa fa-th"></i><a href="forms-advanced.html">پیش فاکتور</a></li>
+                                <li><i class="menu-icon fa fa-th"></i><a href="forms-advanced.html">قیمت محصولات</a></li>
+                                <li><i class="menu-icon fa fa-th"></i><a href="forms-advanced.html">مشاهده تمامی قطعات</a></li>
+                                <li><i class="menu-icon fa fa-th"></i><a href="forms-advanced.html">شاخص های واحد فروش</a></li>
+                                <li><i class="menu-icon fa fa-th"></i><a href="forms-advanced.html">انبار</a></li>
+
+                            </ul>
+                        </li>
+                        <li class="menu-item-has-children dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="menu-icon fa fa-laptop"></i>خدمات پس ازفروش
+                            </a>
+                            <ul class="sub-menu children dropdown-menu">
+                                <li><i class="fa fa-puzzle-piece"></i><a href="ui-buttons.html">لیست کمبود</a></li>
+                                <li><i class="fa fa-id-badge"></i><a href="ui-badges.html">انبار</a></li>
+                                <li><i class="fa fa-bars"></i><a href="ui-tabs.html">-----</a></li>
+                                <li><i class="fa fa-share-square-o"></i><a href="ui-social-buttons.html">-----</a></li>
+                                <li><i class="fa fa-id-card-o"></i><a href="ui-cards.html">-----</a></li>
+                                <li><i class="fa fa-exclamation-triangle"></i><a href="ui-alerts.html">-----</a></li>
+                                <li><i class="fa fa-spinner"></i><a href="ui-progressbar.html">-----</a></li>
+                                <li><i class="fa fa-fire"></i><a href="ui-modals.html">-----</a></li>
+                                <li><i class="fa fa-book"></i><a href="ui-switches.html">-----</a></li>
+                                <li><i class="fa fa-th"></i><a href="ui-grids.html">-----</a></li>
+                                <li><i class="fa fa-file-word-o"></i><a href="ui-typgraphy.html">-----</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-has-children dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="menu-icon fa fa-laptop"></i>کنترل کیفی
+                            </a>
+                            <ul class="sub-menu children dropdown-menu">
+                                <li><i class="fa fa-puzzle-piece"></i><a href="ui-buttons.html">لیست کمبود</a></li>
+                                <li><i class="fa fa-id-badge"></i><a href="ui-badges.html">مدیر کنترل کیفی</a></li>
+                                <li><i class="fa fa-bars"></i><a href="ui-tabs.html">کارشناس کنترل کیفی</a></li>
+                                <li><i class="fa fa-share-square-o"></i><a href="ui-social-buttons.html">کالیبراسیون</a></li>
+                                <li><i class="fa fa-id-card-o"></i><a href="ui-cards.html">مشاهده تمامی قطعات</a></li>
+                                <li><i class="fa fa-exclamation-triangle"></i><a href="ui-alerts.html">تغییرات طراحی</a></li>
+                                <li><i class="fa fa-spinner"></i><a href="ui-progressbar.html">اقدام اصلاحی</a></li>
+                                <li><i class="fa fa-fire"></i><a href="ui-modals.html">طرح کنترل</a></li>
+                                <li><i class="fa fa-book"></i><a href="ui-switches.html">-----</a></li>
+                                <li><i class="fa fa-th"></i><a href="ui-grids.html">-----</a></li>
+                                <li><i class="fa fa-file-word-o"></i><a href="ui-typgraphy.html">-----</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-has-children dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="menu-icon fa fa-laptop"></i>مدیریت
+                            </a>
+                            <ul class="sub-menu children dropdown-menu">
+                                <li><i class="fa fa-puzzle-piece"></i><a href="ui-buttons.html">لیست کمبود</a></li>
+                                <li><i class="fa fa-id-badge"></i><a href="ui-badges.html">شاخص ها</a></li>
+                                <li><i class="fa fa-bars"></i><a href="ui-tabs.html">محصولات</a></li>
+                                <li><i class="fa fa-share-square-o"></i><a href="ui-social-buttons.html">فروش</a></li>
+                                <li><i class="fa fa-id-card-o"></i><a href="ui-cards.html">خدمات پس از فروش</a></li>
+                                <li><i class="fa fa-exclamation-triangle"></i><a href="ui-alerts.html">انبار</a></li>
+                                <li><i class="fa fa-spinner"></i><a href="ui-progressbar.html">کنترل کیفی</a></li>
+                                <li><i class="fa fa-fire"></i><a href="ui-modals.html">-----</a></li>
+                                <li><i class="fa fa-book"></i><a href="ui-switches.html">-----</a></li>
+                                <li><i class="fa fa-th"></i><a href="ui-grids.html">-----</a></li>
+                                <li><i class="fa fa-file-word-o"></i><a href="ui-typgraphy.html">-----</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-has-children dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="menu-icon fa fa-laptop"></i>تدارکات
+                            </a>
+                            <ul class="sub-menu children dropdown-menu">
+                                <li><i class="fa fa-puzzle-piece"></i><a href="ui-buttons.html">لیست کمبود</a></li>
+                                <li><i class="fa fa-id-badge"></i><a href="ui-badges.html">تامین کنندگان</a></li>
+                                <li><i class="fa fa-bars"></i><a href="ui-tabs.html">قیمت کالاها</a></li>
+                                <li><i class="fa fa-share-square-o"></i><a href="ui-social-buttons.html">مشاهده تمامی قطعات</a></li>
+                                <li><i class="fa fa-id-card-o"></i><a href="ui-cards.html">-----</a></li>
+                                <li><i class="fa fa-exclamation-triangle"></i><a href="ui-alerts.html">-----</a></li>
+                                <li><i class="fa fa-spinner"></i><a href="ui-progressbar.html">-----</a></li>
+                                <li><i class="fa fa-fire"></i><a href="ui-modals.html">-----</a></li>
+                                <li><i class="fa fa-book"></i><a href="ui-switches.html">-----</a></li>
+                                <li><i class="fa fa-th"></i><a href="ui-grids.html">-----</a></li>
+                                <li><i class="fa fa-file-word-o"></i><a href="ui-typgraphy.html">-----</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-has-children dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="menu-icon fa fa-laptop"></i>کارگزینی
+                            </a>
+                            <ul class="sub-menu children dropdown-menu">
+                                <li><i class="fa fa-puzzle-piece"></i><a href="ui-buttons.html">نیروی انسانی</a></li>
+                                <li><i class="fa fa-id-badge"></i><a href="ui-badges.html">قراردادها</a></li>
+                                <li><i class="fa fa-bars"></i><a href="ui-tabs.html">-----</a></li>
+                                <li><i class="fa fa-share-square-o"></i><a href="ui-social-buttons.html">-----</a></li>
+                                <li><i class="fa fa-id-card-o"></i><a href="ui-cards.html">-----</a></li>
+                                <li><i class="fa fa-exclamation-triangle"></i><a href="ui-alerts.html">-----</a></li>
+                                <li><i class="fa fa-spinner"></i><a href="ui-progressbar.html">-----</a></li>
+                                <li><i class="fa fa-fire"></i><a href="ui-modals.html">-----</a></li>
+                                <li><i class="fa fa-book"></i><a href="ui-switches.html">-----</a></li>
+                                <li><i class="fa fa-th"></i><a href="ui-grids.html">-----</a></li>
+                                <li><i class="fa fa-file-word-o"></i><a href="ui-typgraphy.html">-----</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-has-children dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="menu-icon fa fa-laptop"></i>انبار
+                            </a>
+                            <ul class="sub-menu children dropdown-menu">
+                                <li><i class="fa fa-puzzle-piece"></i><a href="ui-buttons.html">انبار قطعات</a></li>
+                                <li><i class="fa fa-id-badge"></i><a href="ui-badges.html">انبار محصول</a></li>
+                                <li><i class="fa fa-bars"></i><a href="ui-tabs.html">-----</a></li>
+                                <li><i class="fa fa-share-square-o"></i><a href="ui-social-buttons.html">-----</a></li>
+                                <li><i class="fa fa-id-card-o"></i><a href="ui-cards.html">-----</a></li>
+                                <li><i class="fa fa-exclamation-triangle"></i><a href="ui-alerts.html">-----</a></li>
+                                <li><i class="fa fa-spinner"></i><a href="ui-progressbar.html">-----</a></li>
+                                <li><i class="fa fa-fire"></i><a href="ui-modals.html">-----</a></li>
+                                <li><i class="fa fa-book"></i><a href="ui-switches.html">-----</a></li>
+                                <li><i class="fa fa-th"></i><a href="ui-grids.html">-----</a></li>
+                                <li><i class="fa fa-file-word-o"></i><a href="ui-typgraphy.html">-----</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-has-children dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="menu-icon fa fa-laptop"></i>امورمالی و حسابداری
+                            </a>
+                            <ul class="sub-menu children dropdown-menu">
+                                <li><i class="fa fa-puzzle-piece"></i><a href="ui-buttons.html">اموال</a></li>
+                                <li><i class="fa fa-id-badge"></i><a href="ui-badges.html">سفارش داخلی</a></li>
+                                <li><i class="fa fa-bars"></i><a href="ui-tabs.html">مالی</a></li>
+                                <li><i class="fa fa-share-square-o"></i><a href="ui-social-buttons.html">حقوق و دستمزد</a></li>
+                                <li><i class="fa fa-id-card-o"></i><a href="ui-cards.html">-----</a></li>
+                                <li><i class="fa fa-exclamation-triangle"></i><a href="ui-alerts.html">-----</a></li>
+                                <li><i class="fa fa-spinner"></i><a href="ui-progressbar.html">-----</a></li>
+                                <li><i class="fa fa-fire"></i><a href="ui-modals.html">-----</a></li>
+                                <li><i class="fa fa-book"></i><a href="ui-switches.html">-----</a></li>
+                                <li><i class="fa fa-th"></i><a href="ui-grids.html">-----</a></li>
+                                <li><i class="fa fa-file-word-o"></i><a href="ui-typgraphy.html">-----</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-has-children dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="menu-icon fa fa-laptop"></i>انفورماتیک
+                            </a>
+                            <ul class="sub-menu children dropdown-menu">
+                                <li><i class="fa fa-puzzle-piece"></i><a href="ui-buttons.html">کاربرها</a></li>
+                                <li><i class="fa fa-id-badge"></i><a href="ui-badges.html">اینترنت</a></li>
+                                <li><i class="fa fa-bars"></i><a href="ui-tabs.html">شبکه</a></li>
+                                <li><i class="fa fa-share-square-o"></i><a href="ui-social-buttons.html">-----</a></li>
+                                <li><i class="fa fa-id-card-o"></i><a href="ui-cards.html">-----</a></li>
+                                <li><i class="fa fa-exclamation-triangle"></i><a href="ui-alerts.html">-----</a></li>
+                                <li><i class="fa fa-spinner"></i><a href="ui-progressbar.html">-----</a></li>
+                                <li><i class="fa fa-fire"></i><a href="ui-modals.html">-----</a></li>
+                                <li><i class="fa fa-book"></i><a href="ui-switches.html">-----</a></li>
+                                <li><i class="fa fa-th"></i><a href="ui-grids.html">-----</a></li>
+                                <li><i class="fa fa-file-word-o"></i><a href="ui-typgraphy.html">-----</a></li>
+                            </ul>
+                        </li>
+
+
+                    </ul>
+                </div>
+
+            </nav>
+        </aside>
+        <div id="right-panel" class="right-panel">
+
+            <!-- Header-->
+            <header id="header" class="header" style="background-image:url(../../images/Log20.jpg)">
+
+                <div class="header-menu">
+                    
+                    <div class="col-sm-7 float-right">
+                        <a id="menuToggle" class="menutoggle"><i class="fa fa fa-tasks" style="padding-top: 12px;"></i></a>
+                    </div>
+
+                    <div class="col-sm-5 float-right">
+                        <div class="user-area dropdown float-left">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img class="user-avatar rounded-circle" src="../../images/admin.jpg" alt="User Avatar">
+                            </a>
+
+                            <div class="user-menu dropdown-menu">
+                                <a class="nav-link" href="#"><i class="fa fa-user pl-1"></i>محمد درستی</a>
+
+                                <a class="nav-link" href="#"><i class="fa fa-cog pl-1"></i>تغییر کلمه عبور </a>
+
+                                <a class="nav-link" href="page-login.html"><i class="fa fa-power-off pl-1"></i>خروج </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </header>
+
+          
+
+            <div class="content mt-3">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+
+
+
+
+
+
+    </form>
+    <script src="../../vendors/jquery/dist/jquery.min.js"></script>
+    <script src="../../vendors/popper.js/dist/umd/popper.min.js"></script>
+    <script src="../../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/main.js"></script>
+
+
+    <script src="../../vendors/chart.js/dist/Chart.bundle.min.js"></script>
+    <script src="../../assets/js/dashboard.js"></script>
+    <script src="../../assets/js/widgets.js"></script>
+    <script src="../../vendors/jqvmap/dist/jquery.vmap.min.js"></script>
+    <script src="../../vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+    <script src="../../vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script>
+        (function ($) {
+            "use strict";
+
+            jQuery('#vmap').vectorMap({
+                map: 'world_en',
+                backgroundColor: null,
+                color: '#ffffff',
+                hoverOpacity: 0.7,
+                selectedColor: '#1de9b6',
+                enableZoom: true,
+                showTooltip: true,
+                values: sample_data,
+                scaleColors: ['#1de9b6', '#03a9f5'],
+                normalizeFunction: 'polynomial'
+            });
+        })(jQuery);
+    </script>
+</body>
+</html>
