@@ -14,6 +14,9 @@
             margin-top: 2px
         }
 
+
+
+
         .info i {
             color: #F6AA93;
         } 
