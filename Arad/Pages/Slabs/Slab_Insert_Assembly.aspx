@@ -16,7 +16,7 @@
 
         .info i {
             color: #F6AA93;
-        }
+        } 
 
 
 
