@@ -9,8 +9,6 @@ Public Class Slab_Insert_Assembly
             Me.MultiView1.SetActiveView(AssemblyArchive)
             FillDataGrid()
 
-
-            EmptyDataGrid()
         Catch ex As Exception
         End Try
 
@@ -61,13 +59,7 @@ Public Class Slab_Insert_Assembly
         Catch ex As Exception
         End Try
     End Sub
-    Private Sub EmptyDataGrid()
-        Try
 
-
-        Catch ex As Exception
-        End Try
-    End Sub
 
     Protected Sub Return_Btn_Click(sender As Object, e As EventArgs)
         Me.MultiView1.SetActiveView(AssemblySubmit)
