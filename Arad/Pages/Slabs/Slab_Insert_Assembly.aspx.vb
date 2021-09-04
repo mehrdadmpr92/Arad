@@ -10,8 +10,6 @@ Public Class Slab_Insert_Assembly
             FillDataGrid()
 
 
-
-
             EmptyDataGrid()
         Catch ex As Exception
         End Try
