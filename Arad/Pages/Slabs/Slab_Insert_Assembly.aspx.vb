@@ -8,6 +8,8 @@ Public Class Slab_Insert_Assembly
             Page.Title = "ثبت قطعه اسمبلی"
             Me.MultiView1.SetActiveView(ViewEdit)
             FillDataGrid()
+
+            FillDataGrid()
         Catch ex As Exception
         End Try
 
