@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-   
+
     <style>
         .info p {
             text-align: center;
@@ -12,18 +12,13 @@
             font-weight: 600;
             font-size: 15px;
             margin-top: 2px
-        }   
-
-   
-        test12
-
-
+        }
 
         .info i {
             color: #F6AA93;
-        } 
+        }
 
-            
+
 
         input {
             border-radius: 0px 5px 5px 0px;
@@ -200,7 +195,9 @@
                         <ItemTemplate>
                             <asp:LinkButton runat="server" ID="LbtEdit_Click" CssClass="btn btn-link" 
                                 OnClick="LbtEdit_Click_Click" CommandArgument='<%#Eval("SlabId") %>'>ویرایش</asp:LinkButton>
-                        </ItemTemplate>
+
+                            <asp:LinkButton runat="server" ID="Delete_Btn" OnClientClick="var a_href = $(this).attr('href'); $.confirmLinkButtonDelete('آیا حذف داده را تایید می کنید؟',a_href,	function () {$.msg('شما انصراف دادید',{header:'عدم تایید'});});  return false;" OnClick="Delete_Btn_Click" CommandArgument='<%#Eval("SlabId") %>' Text="حذف" />
+                        </ItemTemplate> 
                     </asp:TemplateField>
 
                 </Columns>

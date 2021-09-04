@@ -19,8 +19,7 @@ Public Class Slab_Insert_Assembly
             Dim err As String = slab.Slab_Assembly_Insert(SlabId_Txt.Text, PerSlabName_Txt.Text,
                                                       SlabName_Txt.Text, SlabDesc_Txt.Text)
 
-            If SlabFile_File.HasFile Then
-                If err = 0 Then
+            If err = 0 Then
                 SlabId_Txt.Text = ""
                 PerSlabName_Txt.Text = ""
                 SlabName_Txt.Text = ""
@@ -114,6 +113,25 @@ Public Class Slab_Insert_Assembly
 
     End Sub
 
+    Protected Sub Delete_Btn_Click(sender As Object, e As EventArgs)
+        Try
+            Dim btn As New LinkButton
+            btn = sender
+            Me.ViewState("Delete_SlabId") = btn.CommandArgument
 
+            Dim slab As New Slabs
+            Dim err As String = slab.Slab_Assembly_Delete(Me.ViewState("Delete_SlabId"))
+
+            If err = 0 Then
+                Me.ViewState("Delete_SlabId") = ""
+                FillDataGrid()
+                Me.MultiView1.SetActiveView(AssemblyArchive)
+
+            Else
+            End If
+        Catch ex As Exception
+
+        End Try
+    End Sub
 End Class
 
