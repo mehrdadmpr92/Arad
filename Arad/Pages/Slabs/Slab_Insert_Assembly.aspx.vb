@@ -6,7 +6,7 @@ Public Class Slab_Insert_Assembly
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Try
             Page.Title = "ثبت قطعه اسمبلی"
-            Me.MultiView1.SetActiveView(AssemblyArchive)
+            Me.MultiView1.SetActiveView(AssemblySubmit)
             FillDataGrid()
 
         Catch ex As Exception
@@ -31,6 +31,9 @@ Public Class Slab_Insert_Assembly
                 Me.MultiView1.SetActiveView(AssemblyArchive)
 
             Else
+                Me.Message.ErrMessages(Arad.Message.MessageType.Err) = "ثبت با مشکل مواجه شد."
+
+
             End If
 
 

@@ -1,5 +1,8 @@
 ﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Pages/MasterPage/MasterPage.Master" CodeBehind="Slab_Insert_Assembly.aspx.vb" Inherits="Arad.Slab_Insert_Assembly" %>
 
+<%@ Register Src="~/Components/Message/Message.ascx" TagPrefix="uc1" TagName="Message" %>
+
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -121,7 +124,7 @@
             }
     </style>
 
-
+    
     <asp:MultiView runat="server" ID="MultiView1">
         <asp:View runat="server" ID="AssemblySubmit">
             <div>
@@ -129,6 +132,7 @@
                 <h2>ثبت قطعه اسمبلی</h2>
             </div>
             <hr />
+            <uc1:message runat="server" id="Message" />
             <div class="contentform col-md-7 col-7 float-none m-auto ">
                 <div id="sendmessage">Your message has been sent successfully. Thank you. </div>
 
@@ -184,7 +188,7 @@
                 <h2>آرشیو تمامی قطعات</h2>
             </div>
             <hr />
-            <asp:GridView runat="server" ID="DG_Archive" Width="100%" AutoGenerateColumns="false">
+            <asp:GridView runat="server" ID="DG_Archive" SkinID="GV_Skin" Width="100%" AutoGenerateColumns="false">
                 <Columns>
                     <asp:BoundField DataField="SlabId" HeaderText="شماره قطعه" />
                     <asp:BoundField DataField="SlabName" HeaderText="نام قطعه" />

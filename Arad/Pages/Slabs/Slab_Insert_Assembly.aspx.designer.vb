@@ -12,7 +12,7 @@ Option Explicit On
 
 
 Partial Public Class Slab_Insert_Assembly
-    
+
     '''<summary>
     '''MultiView1 control.
     '''</summary>
@@ -21,7 +21,7 @@ Partial Public Class Slab_Insert_Assembly
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents MultiView1 As Global.System.Web.UI.WebControls.MultiView
-    
+
     '''<summary>
     '''AssemblySubmit control.
     '''</summary>
@@ -30,7 +30,16 @@ Partial Public Class Slab_Insert_Assembly
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents AssemblySubmit As Global.System.Web.UI.WebControls.View
-    
+
+    '''<summary>
+    '''Message control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Message As Global.Arad.Message
+
     '''<summary>
     '''SlabId_Txt control.
     '''</summary>
@@ -39,7 +48,7 @@ Partial Public Class Slab_Insert_Assembly
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents SlabId_Txt As Global.System.Web.UI.WebControls.TextBox
-    
+
     '''<summary>
     '''SlabName_Txt control.
     '''</summary>
@@ -48,7 +57,7 @@ Partial Public Class Slab_Insert_Assembly
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents SlabName_Txt As Global.System.Web.UI.WebControls.TextBox
-    
+
     '''<summary>
     '''PerSlabName_Txt control.
     '''</summary>
@@ -57,7 +66,7 @@ Partial Public Class Slab_Insert_Assembly
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents PerSlabName_Txt As Global.System.Web.UI.WebControls.TextBox
-    
+
     '''<summary>
     '''SlabFile_File control.
     '''</summary>
@@ -66,7 +75,7 @@ Partial Public Class Slab_Insert_Assembly
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents SlabFile_File As Global.System.Web.UI.WebControls.FileUpload
-    
+
     '''<summary>
     '''SlabDesc_Txt control.
     '''</summary>
@@ -75,7 +84,7 @@ Partial Public Class Slab_Insert_Assembly
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents SlabDesc_Txt As Global.System.Web.UI.WebControls.TextBox
-    
+
     '''<summary>
     '''Submit_Btn control.
     '''</summary>
@@ -84,7 +93,7 @@ Partial Public Class Slab_Insert_Assembly
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Submit_Btn As Global.System.Web.UI.WebControls.Button
-    
+
     '''<summary>
     '''AssemblyArchive control.
     '''</summary>
@@ -93,7 +102,7 @@ Partial Public Class Slab_Insert_Assembly
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents AssemblyArchive As Global.System.Web.UI.WebControls.View
-    
+
     '''<summary>
     '''DG_Archive control.
     '''</summary>
@@ -102,7 +111,7 @@ Partial Public Class Slab_Insert_Assembly
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents DG_Archive As Global.System.Web.UI.WebControls.GridView
-    
+
     '''<summary>
     '''Return_Btn control.
     '''</summary>
@@ -111,7 +120,7 @@ Partial Public Class Slab_Insert_Assembly
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Return_Btn As Global.System.Web.UI.WebControls.Button
-    
+
     '''<summary>
     '''ViewEdit control.
     '''</summary>
@@ -120,7 +129,7 @@ Partial Public Class Slab_Insert_Assembly
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ViewEdit As Global.System.Web.UI.WebControls.View
-    
+
     '''<summary>
     '''SlabIdEdit_Txt control.
     '''</summary>
@@ -129,7 +138,7 @@ Partial Public Class Slab_Insert_Assembly
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents SlabIdEdit_Txt As Global.System.Web.UI.WebControls.Label
-    
+
     '''<summary>
     '''SlabNameEdit_Txt control.
     '''</summary>
@@ -138,7 +147,7 @@ Partial Public Class Slab_Insert_Assembly
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents SlabNameEdit_Txt As Global.System.Web.UI.WebControls.TextBox
-    
+
     '''<summary>
     '''PerSlabNameEdit_Txt control.
     '''</summary>
@@ -147,7 +156,7 @@ Partial Public Class Slab_Insert_Assembly
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents PerSlabNameEdit_Txt As Global.System.Web.UI.WebControls.TextBox
-    
+
     '''<summary>
     '''SlabDescEdit_Txt control.
     '''</summary>
@@ -156,7 +165,7 @@ Partial Public Class Slab_Insert_Assembly
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents SlabDescEdit_Txt As Global.System.Web.UI.WebControls.TextBox
-    
+
     '''<summary>
     '''Edit_Btn control.
     '''</summary>
