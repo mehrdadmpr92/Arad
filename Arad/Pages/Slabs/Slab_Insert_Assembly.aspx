@@ -252,7 +252,7 @@
 
          
             <div class="col-md-12 col-12">
-                <asp:Button runat="server" ID="Edit_Btn" CssClass="bouton-contact" Text="ذخیره اطلاعات" OnClick="Edit_Btn_Click" />
+                <asp:Button runat="server" ID="Edit_Btn" CssClass="bouton-contact" Text="ذخیره2" OnClick="Edit_Btn_Click" />
             </div>
             
         </asp:View>
