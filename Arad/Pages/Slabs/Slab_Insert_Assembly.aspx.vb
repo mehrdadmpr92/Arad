@@ -6,10 +6,13 @@ Public Class Slab_Insert_Assembly
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Try
             Page.Title = "ثبت قطعه اسمبلی"
-            Me.MultiView1.SetActiveView(ViewEdit)
+            Me.MultiView1.SetActiveView(AssemblyArchive)
             FillDataGrid()
 
-            FillDataGrid()
+
+
+
+            EmptyDataGrid()
         Catch ex As Exception
         End Try
 
@@ -56,6 +59,13 @@ Public Class Slab_Insert_Assembly
             Else
                 '"رکوردی برای نمایش یافت نگردید."
             End If
+
+        Catch ex As Exception
+        End Try
+    End Sub
+    Private Sub EmptyDataGrid()
+        Try
+
 
         Catch ex As Exception
         End Try
