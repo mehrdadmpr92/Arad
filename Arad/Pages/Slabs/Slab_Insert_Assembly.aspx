@@ -1,6 +1,8 @@
-﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Pages/MasterPage/MasterPage.Master" CodeBehind="Slab_Insert_Assembly.aspx.vb" Inherits="Arad.Slab_Insert_Assembly" %>
+﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Pages/MasterPage/MasterPage.Master" CodeBehind="Slab_Insert_Assembly.aspx.vb" Inherits="Arad.Slab_Insert_Assembly" Theme="Admin" %>
 
 <%@ Register Src="~/Components/Message/Message.ascx" TagPrefix="uc1" TagName="Message" %>
+<%@ Register Src="~/Components/File_Upload/File_Upload.ascx" TagPrefix="uc1" TagName="File_Upload" %>
+
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -126,7 +128,7 @@
             }
     </style>
 
-    
+    <uc1:message runat="server" id="Message" />
     <asp:MultiView runat="server" ID="MultiView1">
         <asp:View runat="server" ID="AssemblySubmit">
             <div>
@@ -134,7 +136,7 @@
                 <h2>ثبت قطعه اسمبلی</h2>
             </div>
             <hr />
-            <uc1:message runat="server" id="Message" />
+            
             <div class="contentform col-md-7 col-7 float-none m-auto ">
                 <div id="sendmessage">Your message has been sent successfully. Thank you. </div>
 
@@ -164,7 +166,8 @@
                     <div class="form-group">
                         <label>فایل پیوستی :</label>
                         <span class="icon-case"><i class="fa fa-file-pdf-o"></i></span>
-                        <asp:FileUpload runat="server" ID="SlabFile_File" Style="padding-top: 5px" />
+                     <%--   <asp:FileUpload runat="server" ID="SlabFile_File" Style="padding-top: 5px" />--%>
+                        <uc1:File_Upload runat="server" id="SlabFile_File" />
                         <div class="validation"></div>
                     </div>
 

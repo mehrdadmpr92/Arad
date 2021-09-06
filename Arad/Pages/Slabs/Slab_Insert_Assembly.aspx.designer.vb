@@ -14,6 +14,15 @@ Option Explicit On
 Partial Public Class Slab_Insert_Assembly
 
     '''<summary>
+    '''Message control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Message As Global.Arad.Message
+
+    '''<summary>
     '''MultiView1 control.
     '''</summary>
     '''<remarks>
@@ -30,15 +39,6 @@ Partial Public Class Slab_Insert_Assembly
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents AssemblySubmit As Global.System.Web.UI.WebControls.View
-
-    '''<summary>
-    '''Message control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Message As Global.Arad.Message
 
     '''<summary>
     '''SlabId_Txt control.
@@ -74,7 +74,7 @@ Partial Public Class Slab_Insert_Assembly
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents SlabFile_File As Global.System.Web.UI.WebControls.FileUpload
+    Protected WithEvents SlabFile_File As Global.Arad.File_Upload
 
     '''<summary>
     '''SlabDesc_Txt control.

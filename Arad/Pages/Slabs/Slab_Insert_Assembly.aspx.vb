@@ -26,17 +26,12 @@ Public Class Slab_Insert_Assembly
                 SlabName_Txt.Text = ""
                 SlabDesc_Txt.Text = ""
 
-
                 FillDataGrid()
                 Me.MultiView1.SetActiveView(AssemblyArchive)
-
+                Me.Message.ErrMessages(Arad.Message.MessageType.Success) = "ثبت با موفقیت انجام شد."
             Else
                 Me.Message.ErrMessages(Arad.Message.MessageType.Err) = "ثبت با مشکل مواجه شد."
-
-
             End If
-
-
         Catch ex As Exception
 
         End Try

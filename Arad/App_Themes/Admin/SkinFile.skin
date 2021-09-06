@@ -11,27 +11,4 @@
 
                 </asp:GridView>       
                 
-                      <asp:GridView SkinID="GV_Skin_Auto"  runat="server" style="font-size: 12pt; font-family:B Koodak,'B mitra'; width: 98%;" 
-                BorderColor="#9299AC"   BorderStyle="Solid" BorderWidth="2px" CellPadding="6" AutoGenerateColumns="True">
-                    <HeaderStyle  BackColor="#333333" Font-Names="B Koodak,'B mitra'" Font-Size="12pt" ForeColor="White"
-                        Height="35px" HorizontalAlign="Center" VerticalAlign="Middle" BorderColor="#9299AC" BorderStyle="Solid" BorderWidth="2px" />
-                    <RowStyle  BackColor="#fffffff"  BorderColor="#9299AC" BorderStyle="Solid" BorderWidth="2px" />
-                    <EmptyDataRowStyle BorderColor="#9299AC" BorderStyle="Solid" BorderWidth="2px" />
-                    <EditRowStyle  BorderColor="#9299AC" BorderWidth="2px" />
-                    <AlternatingRowStyle BackColor="#dbdbdb" />
-                
-
-                </asp:GridView>
-            
-
-     <asp:GridView SkinID="GV_Skin_White"  runat="server" style="font-size: 12pt; font-family:B Koodak,'B mitra'; width: 98%;" 
-                BorderColor="#9299AC"   BorderStyle="Solid" BorderWidth="2px" CellPadding="6" AutoGenerateColumns="False">
-                    <HeaderStyle  BackColor="#333333" Font-Names="B Koodak,'B mitra'" Font-Size="12pt" ForeColor="White"
-                        Height="35px" HorizontalAlign="Center" VerticalAlign="Middle" BorderColor="#9299AC" BorderStyle="Solid" BorderWidth="2px" />
-                    <RowStyle BorderColor="#9299AC" BorderStyle="Solid" BorderWidth="2px" />
-                    <EmptyDataRowStyle BorderColor="#9299AC" BorderStyle="Solid" BorderWidth="2px" />
-                    <EditRowStyle  BorderColor="#9299AC" BorderWidth="2px" />
-                    
-                
-
-                </asp:GridView> 
+        

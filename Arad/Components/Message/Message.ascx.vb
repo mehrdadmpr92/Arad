@@ -57,10 +57,28 @@
 
 
             Case MessageType.None
+                DIV2.Style.Add("border-right", "#0400FF 1px solid")
+                DIV2.Style.Add("border-top", "#0400FF 1px solid")
+                DIV2.Style.Add("border-left", "#0400FF 1px solid")
+                DIV2.Style.Add("border-bottom", "#0400FF 1px solid")
+                DIV2.Style.Add("background-color", "#DFE2FF")
+                DIV1.Style.Add("color", "#001A83")
 
             Case MessageType.Success
+                DIV2.Style.Add("border-right", "#33C62E 1px solid")
+                DIV2.Style.Add("border-top", "#33C62E 1px solid")
+                DIV2.Style.Add("border-left", "#33C62E 1px solid")
+                DIV2.Style.Add("border-bottom", "#33C62E 1px solid")
+                DIV2.Style.Add("background-color", "#D8FFD4")
+                DIV1.Style.Add("color", "#118300")
 
             Case MessageType.Warning
+                DIV2.Style.Add("border-right", "#FFE600 1px solid")
+                DIV2.Style.Add("border-top", "#FFE600 1px solid")
+                DIV2.Style.Add("border-left", "#FFE600 1px solid")
+                DIV2.Style.Add("border-bottom", "#FFE600 1px solid")
+                DIV2.Style.Add("background-color", "#FFFCD0")
+                DIV1.Style.Add("color", "#714915")
 
         End Select
 
