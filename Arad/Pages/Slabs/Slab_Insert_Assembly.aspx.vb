@@ -17,14 +17,35 @@ Public Class Slab_Insert_Assembly
     Protected Sub Submit_Btn_Click(sender As Object, e As EventArgs)
         Try
             Dim slab As New Slabs
+
+
+            If SlabFile.fileselect Then
+                SlabFile.File.PostedFile.SaveAs(Server.MapPath(".\Temp\") + "..\..\..\Uploads\Slabs\" &
+                                                Date.Now.Hour.ToString &
+                                                Date.Now.Minute.ToString +
+                                                "_" +
+                                                SlabFile.filename +
+                                                SlabFile.filetype
+                                                )
+
+                Me.ViewState("SlabFile") = "..\..\..\Uploads\Slabs\" & Date.Now.Hour.ToString & Date.Now.Minute.ToString + "_" + SlabFile.filename + SlabFile.filetype
+
+            Else
+                Me.ViewState("SlabFile") = "0"
+            End If
+
+
+
+
             Dim err As String = slab.Slab_Assembly_Insert(SlabId_Txt.Text, PerSlabName_Txt.Text,
-                                                      SlabName_Txt.Text, SlabDesc_Txt.Text)
+                                                      SlabName_Txt.Text, SlabDesc_Txt.Text, Me.ViewState("SlabFile"))
 
             If err = 0 Then
                 SlabId_Txt.Text = ""
                 PerSlabName_Txt.Text = ""
                 SlabName_Txt.Text = ""
                 SlabDesc_Txt.Text = ""
+                Me.ViewState("SlabFile") = "0"
 
                 FillDataGrid()
                 Me.MultiView1.SetActiveView(AssemblyArchive)
@@ -33,7 +54,7 @@ Public Class Slab_Insert_Assembly
                 Me.Message.ErrMessages(Arad.Message.MessageType.Err) = "ثبت با مشکل مواجه شد."
             End If
         Catch ex As Exception
-
+            Me.Session("ErrorMsg") = ex.Message.ToString
         End Try
     End Sub
 

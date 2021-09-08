@@ -1979,6 +1979,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Code\Connection.vb" />
+    <Compile Include="App_Code\GetFileDetails.vb" />
     <Compile Include="App_Code\Pages\Slabs.vb" />
     <Compile Include="Components\File_Upload\File_Upload.ascx.designer.vb">
       <DependentUpon>File_Upload.ascx</DependentUpon>
@@ -2670,6 +2671,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\General\" />
+    <Folder Include="Uploads\Slabs\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

@@ -167,7 +167,7 @@
                         <label>فایل پیوستی :</label>
                         <span class="icon-case"><i class="fa fa-file-pdf-o"></i></span>
                      <%--   <asp:FileUpload runat="server" ID="SlabFile_File" Style="padding-top: 5px" />--%>
-                        <uc1:File_Upload runat="server" id="SlabFile_File" />
+                        <uc1:File_Upload runat="server" id="SlabFile" />
                         <div class="validation"></div>
                     </div>
 

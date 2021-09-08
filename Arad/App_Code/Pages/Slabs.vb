@@ -3,7 +3,8 @@ Imports System.Data.SqlClient
 
 Public Class Slabs
 
-    Public Function Slab_Assembly_Insert(ByVal slabId As Decimal, ByVal slabName As String, slabNameEng As String, ByVal Description As String)
+    Public Function Slab_Assembly_Insert(ByVal slabId As Decimal, ByVal slabName As String, slabNameEng As String,
+                                         ByVal Description As String, ByVal FileName As String)
         Try
             Dim connection As New Connection
             If connection.Connection.State <> ConnectionState.Open Then connection.Connection.Open()
@@ -15,15 +16,16 @@ Public Class Slabs
             connection.Adapter.SelectCommand.CommandType = CommandType.StoredProcedure
             connection.Adapter.SelectCommand.CommandText = "Slab_Assembly_Insert"
 
-            Dim sqlparams(4) As SqlParameter
+            Dim sqlparams(5) As SqlParameter
             sqlparams(0) = New SqlParameter("@slabId", slabId)
             sqlparams(1) = New SqlParameter("@slabName", slabName)
             sqlparams(2) = New SqlParameter("@slabNameEng", slabNameEng)
             sqlparams(3) = New SqlParameter("@Description", Description)
-            sqlparams(4) = New SqlParameter
-            sqlparams(4).Direction = Data.ParameterDirection.Output
-            sqlparams(4).ParameterName = "@output"
-            sqlparams(4).DbType = Data.DbType.Decimal
+            sqlparams(4) = New SqlParameter("@FileName", FileName)
+            sqlparams(5) = New SqlParameter
+            sqlparams(5).Direction = Data.ParameterDirection.Output
+            sqlparams(5).ParameterName = "@output"
+            sqlparams(5).DbType = Data.DbType.Decimal
 
 
             For Each Param In sqlparams
@@ -33,7 +35,7 @@ Public Class Slabs
 
             connection.Adapter.SelectCommand.ExecuteNonQuery()
             If connection.Connection.State <> ConnectionState.Closed Then connection.Connection.Close()
-            Return sqlparams(4).Value.ToString
+            Return sqlparams(5).Value.ToString
 
         Catch ex As Exception
             Return 1

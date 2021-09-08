@@ -68,13 +68,13 @@ Partial Public Class Slab_Insert_Assembly
     Protected WithEvents PerSlabName_Txt As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''SlabFile_File control.
+    '''SlabFile control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents SlabFile_File As Global.Arad.File_Upload
+    Protected WithEvents SlabFile As Global.Arad.File_Upload
 
     '''<summary>
     '''SlabDesc_Txt control.

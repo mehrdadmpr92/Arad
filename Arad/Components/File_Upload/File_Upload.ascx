@@ -4,7 +4,11 @@
 	<tr>
 		<td style="height: 22px;">
 			<input id="File1" runat="server" type="file"
-				style="border: gainsboro 1px solid; font-size: 13px; width: 415px; vertical-align: middle; padding-top: 6px; color: navy; font-family: 'B Nazanin'; height: 40px; margin-left: -10px;" />
+				style="border: gainsboro 1px solid; font-size: 13px; width: 400px; vertical-align: middle; padding-top: 6px; color: navy; font-family: 'B Nazanin'; height: 40px; margin-left: -10px;" />
+		    <asp:LinkButton ID="Lbtn_Upload_Movaggat" runat="server" Font-Underline="False" Visible="False">آپلود موقت</asp:LinkButton>
+            <asp:LinkButton ID="Lbtn_New_UP" runat="server" Font-Underline="False" Visible="False">انتخاب مجدد فایل</asp:LinkButton>
+            <asp:LinkButton ID="Lbt_Sho_File" runat="server" Font-Underline="False" Visible="False">نمایش فایل</asp:LinkButton>&nbsp;
+
 		</td>
 
 		<td colspan="2" style="height: 22px">&nbsp; &nbsp;
