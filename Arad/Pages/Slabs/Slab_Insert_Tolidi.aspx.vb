@@ -1,13 +1,12 @@
-﻿
-
-Public Class Slab_Insert_Assembly
+﻿Public Class Slab_Insert_Tolidi
     Inherits System.Web.UI.Page
+
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Try
-            Page.Title = "ثبت قطعه اسمبلی"
-            Me.MultiView1.SetActiveView(AssemblySubmit)
-            FillDataGrid()
+            Page.Title = "ثبت قطعه تولیدی"
+            Me.MultiView1.SetActiveView(TolidiSubmit)
+
 
         Catch ex As Exception
         End Try
@@ -34,23 +33,21 @@ Public Class Slab_Insert_Assembly
                 Me.ViewState("SlabFile") = "0"
             End If
 
-
-            Dim table As New Data.DataTable
-
-            table = slab.SlabSelect_BySlabId(SlabId_Txt.Text)
-
-            If table.Rows.Count > 0 Then
-                Me.Message.ErrMessages(Arad.Message.MessageType.Err) = "شماره قطعه وارد شده قبلا در سیستم ثبت شده است."
+            If (SlabFile.filename.ToString <> SlabId_Txt.Text) Then
+                Me.Message.ErrMessages(Arad.Message.MessageType.Success) = "نام فایل بایستی با شماره قطعه یکی باشد."
                 Exit Sub
+
             End If
 
 
 
 
-            Dim slabType As String = 3
 
-            Dim err As String = slab.Slab_Assembly_Insert(SlabId_Txt.Text, PerSlabName_Txt.Text,
-                                                      SlabName_Txt.Text, SlabDesc_Txt.Text, Me.ViewState("SlabFile"))
+
+            Dim slabType As String = 1
+
+            Dim err As String = slab.Slab_Tolidi_Insert(SlabId_Txt.Text, PerSlabName_Txt.Text, slabType,
+                                                        SlabName_Txt.Text, SlabDesc_Txt.Text, Me.ViewState("SlabFile"))
 
             If err = 0 Then
                 SlabId_Txt.Text = ""
@@ -59,8 +56,8 @@ Public Class Slab_Insert_Assembly
                 SlabDesc_Txt.Text = ""
                 Me.ViewState("SlabFile") = "0"
 
-                FillDataGrid()
-                Me.MultiView1.SetActiveView(AssemblyArchive)
+
+
                 Me.Message.ErrMessages(Arad.Message.MessageType.Success) = "ثبت با موفقیت انجام شد."
             Else
                 Me.Message.ErrMessages(Arad.Message.MessageType.Err) = "ثبت با مشکل مواجه شد."
@@ -70,30 +67,11 @@ Public Class Slab_Insert_Assembly
         End Try
     End Sub
 
-    Private Sub FillDataGrid()
-        Try
 
-            Dim table As New Data.DataTable
-            Dim slab As New Slabs
-
-
-            Dim dataType As Integer = 0
-            table = slab.SlabSelect(dataType)
-
-            If table.Rows.Count > 0 Then
-                Me.DG_Archive.DataSource = table
-                DG_Archive.DataBind()
-            Else
-                '"رکوردی برای نمایش یافت نگردید."
-            End If
-
-        Catch ex As Exception
-        End Try
-    End Sub
 
 
     Protected Sub Return_Btn_Click(sender As Object, e As EventArgs)
-        Me.MultiView1.SetActiveView(AssemblySubmit)
+        Me.MultiView1.SetActiveView(TolidiSubmit)
     End Sub
 
     Protected Sub LbtEdit_Click_Click(sender As Object, e As EventArgs)
@@ -125,20 +103,25 @@ Public Class Slab_Insert_Assembly
     Protected Sub Edit_Btn_Click(sender As Object, e As EventArgs)
         Try
             Dim slab As New Slabs
-            Dim err As String = slab.Slab_Assembly_Update(Me.ViewState("EditSlabId"), PerSlabNameEdit_Txt.Text,
+
+            If (PerSlabNameEdit_Txt.Text = "") Then
+                Me.Message.ErrMessages(Arad.Message.MessageType.Warning) = "نام قطعه الزامی می باشد"
+            Else
+
+                Dim err As String = slab.Slab_Tolidi_Update(Me.ViewState("EditSlabId"), PerSlabNameEdit_Txt.Text,
                                                       SlabNameEdit_Txt.Text, SlabDescEdit_Txt.Text)
 
-            If err = 0 Then
-                SlabIdEdit_Txt.Text = ""
-                PerSlabNameEdit_Txt.Text = ""
-                SlabNameEdit_Txt.Text = ""
-                SlabDescEdit_Txt.Text = ""
-                Me.ViewState("EditSlabId") = ""
+                If err = 0 Then
+                    SlabIdEdit_Txt.Text = ""
+                    PerSlabNameEdit_Txt.Text = ""
+                    SlabNameEdit_Txt.Text = ""
+                    SlabDescEdit_Txt.Text = ""
+                    Me.ViewState("EditSlabId") = ""
 
-                FillDataGrid()
-                Me.MultiView1.SetActiveView(AssemblyArchive)
 
-            Else
+
+                Else
+                End If
             End If
         Catch ex As Exception
 
@@ -153,12 +136,11 @@ Public Class Slab_Insert_Assembly
             Me.ViewState("Delete_SlabId") = btn.CommandArgument
 
             Dim slab As New Slabs
-            Dim err As String = slab.Slab_Assembly_Delete(Me.ViewState("Delete_SlabId"))
+            Dim err As String = slab.Slab_Tolidi_Delete(Me.ViewState("Delete_SlabId"))
 
             If err = 0 Then
                 Me.ViewState("Delete_SlabId") = ""
-                FillDataGrid()
-                Me.MultiView1.SetActiveView(AssemblyArchive)
+
 
             Else
             End If
@@ -167,4 +149,3 @@ Public Class Slab_Insert_Assembly
         End Try
     End Sub
 End Class
-

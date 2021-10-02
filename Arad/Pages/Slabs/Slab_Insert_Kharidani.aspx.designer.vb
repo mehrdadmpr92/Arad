@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class Slab_Insert_Assembly
+Partial Public Class Slab_Insert_Kharidani
 
     '''<summary>
     '''Message control.
@@ -32,13 +32,13 @@ Partial Public Class Slab_Insert_Assembly
     Protected WithEvents MultiView1 As Global.System.Web.UI.WebControls.MultiView
 
     '''<summary>
-    '''AssemblySubmit control.
+    '''kharidaniSubmit control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents AssemblySubmit As Global.System.Web.UI.WebControls.View
+    Protected WithEvents kharidaniSubmit As Global.System.Web.UI.WebControls.View
 
     '''<summary>
     '''SlabId_Txt control.
@@ -47,7 +47,7 @@ Partial Public Class Slab_Insert_Assembly
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents SlabId_Txt As Global.Arad.SlabId_Check
+    Protected WithEvents SlabId_Txt As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''SlabName_Txt control.
@@ -93,33 +93,6 @@ Partial Public Class Slab_Insert_Assembly
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Submit_Btn As Global.System.Web.UI.WebControls.Button
-
-    '''<summary>
-    '''AssemblyArchive control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents AssemblyArchive As Global.System.Web.UI.WebControls.View
-
-    '''<summary>
-    '''DG_Archive control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents DG_Archive As Global.System.Web.UI.WebControls.GridView
-
-    '''<summary>
-    '''Return_Btn control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Return_Btn As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
     '''ViewEdit control.

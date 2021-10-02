@@ -3,46 +3,6 @@ Imports System.Data.SqlClient
 
 Public Class Slabs
 
-    Public Function Slab_Assembly_Insert(ByVal slabId As Decimal, ByVal slabName As String, slabNameEng As String,
-                                         ByVal Description As String, ByVal FileName As String)
-        Try
-            Dim connection As New Connection
-            If connection.Connection.State <> ConnectionState.Open Then connection.Connection.Open()
-
-            Dim i As Integer = 0
-            Dim Param As Object
-
-            connection.Adapter.SelectCommand.Parameters.Clear()
-            connection.Adapter.SelectCommand.CommandType = CommandType.StoredProcedure
-            connection.Adapter.SelectCommand.CommandText = "Slab_Assembly_Insert"
-
-            Dim sqlparams(5) As SqlParameter
-            sqlparams(0) = New SqlParameter("@slabId", slabId)
-            sqlparams(1) = New SqlParameter("@slabName", slabName)
-            sqlparams(2) = New SqlParameter("@slabNameEng", slabNameEng)
-            sqlparams(3) = New SqlParameter("@Description", Description)
-            sqlparams(4) = New SqlParameter("@FileName", FileName)
-            sqlparams(5) = New SqlParameter
-            sqlparams(5).Direction = Data.ParameterDirection.Output
-            sqlparams(5).ParameterName = "@output"
-            sqlparams(5).DbType = Data.DbType.Decimal
-
-
-            For Each Param In sqlparams
-                connection.Adapter.SelectCommand.Parameters.Add(sqlparams(i))
-                i += 1
-            Next
-
-            connection.Adapter.SelectCommand.ExecuteNonQuery()
-            If connection.Connection.State <> ConnectionState.Closed Then connection.Connection.Close()
-            Return sqlparams(5).Value.ToString
-
-        Catch ex As Exception
-            Return 1
-        Finally
-        End Try
-    End Function
-
     Public Function SlabSelect(ByVal slabType As Integer)
         Try
             Dim connection As New Connection
@@ -105,6 +65,54 @@ Public Class Slabs
             Return Nothing
         Finally
         End Try
+    End Function
+
+    'Friend Function Slab_Sefareshi_Insert(text1 As String, text2 As String, slabType As String, text3 As String, text4 As String, v As Object) As String
+    '    Throw New NotImplementedException()
+    'End Function
+
+    Public Function Slab_Assembly_Insert(ByVal slabId As Decimal, ByVal slabName As String, slabNameEng As String,
+                                         ByVal Description As String, ByVal FileName As String)
+        Try
+            Dim connection As New Connection
+            If connection.Connection.State <> ConnectionState.Open Then connection.Connection.Open()
+
+            Dim i As Integer = 0
+            Dim Param As Object
+
+            connection.Adapter.SelectCommand.Parameters.Clear()
+            connection.Adapter.SelectCommand.CommandType = CommandType.StoredProcedure
+            connection.Adapter.SelectCommand.CommandText = "Slab_Assembly_Insert"
+
+            Dim sqlparams(5) As SqlParameter
+            sqlparams(0) = New SqlParameter("@slabId", slabId)
+            sqlparams(1) = New SqlParameter("@slabName", slabName)
+            sqlparams(2) = New SqlParameter("@slabNameEng", slabNameEng)
+            sqlparams(3) = New SqlParameter("@Description", Description)
+            sqlparams(4) = New SqlParameter("@FileName", FileName)
+            sqlparams(5) = New SqlParameter
+            sqlparams(5).Direction = Data.ParameterDirection.Output
+            sqlparams(5).ParameterName = "@output"
+            sqlparams(5).DbType = Data.DbType.Decimal
+
+
+            For Each Param In sqlparams
+                connection.Adapter.SelectCommand.Parameters.Add(sqlparams(i))
+                i += 1
+            Next
+
+            connection.Adapter.SelectCommand.ExecuteNonQuery()
+            If connection.Connection.State <> ConnectionState.Closed Then connection.Connection.Close()
+            Return sqlparams(5).Value.ToString
+
+        Catch ex As Exception
+            Return 1
+        Finally
+        End Try
+    End Function
+
+    Friend Function Slab_Sefareshi_Update(v As Object, text1 As String, text2 As String, text3 As String) As String
+        Throw New NotImplementedException()
     End Function
 
     Public Function Slab_Assembly_Update(ByVal slabId As Decimal, ByVal slabName As String, slabNameEng As String, ByVal Description As String)
@@ -182,6 +190,627 @@ Public Class Slabs
     End Function
 
 
+    Public Function Slab_Tolidi_Insert(ByVal slabId As Decimal, ByVal slabName As String, ByVal SlabType As Integer,
+                                       slabNameEng As String, ByVal Description As String, ByVal FileName As String)
+
+        Try
+            Dim connection As New Connection
+            If connection.Connection.State <> ConnectionState.Open Then connection.Connection.Open()
+
+            Dim i As Integer = 0
+            Dim Param As Object
+
+            connection.Adapter.SelectCommand.Parameters.Clear()
+            connection.Adapter.SelectCommand.CommandType = CommandType.StoredProcedure
+            connection.Adapter.SelectCommand.CommandText = "Slab_Tolidi_Insert"
+
+            Dim sqlparams(6) As SqlParameter
+            sqlparams(0) = New SqlParameter("@slabId", slabId)
+            sqlparams(1) = New SqlParameter("@slabName", slabName)
+            sqlparams(2) = New SqlParameter("@slabNameEng", slabNameEng)
+            sqlparams(3) = New SqlParameter("@Description", Description)
+            sqlparams(4) = New SqlParameter("@FileName", FileName)
+            sqlparams(5) = New SqlParameter("@SlabType", SlabType)
+            sqlparams(6) = New SqlParameter
+            sqlparams(6).Direction = Data.ParameterDirection.Output
+            sqlparams(6).ParameterName = "@output"
+            sqlparams(6).DbType = Data.DbType.Decimal
 
 
+            For Each Param In sqlparams
+                connection.Adapter.SelectCommand.Parameters.Add(sqlparams(i))
+                i += 1
+            Next
+
+            connection.Adapter.SelectCommand.ExecuteNonQuery()
+            If connection.Connection.State <> ConnectionState.Closed Then connection.Connection.Close()
+            Return sqlparams(6).Value.ToString
+
+        Catch ex As Exception
+            Return 1
+        Finally
+        End Try
+    End Function
+
+
+    Public Function Slab_Tolidi_Update(ByVal slabId As Decimal, ByVal slabName As String, slabNameEng As String, ByVal Description As String)
+        Try
+            Dim connection As New Connection
+            If connection.Connection.State <> ConnectionState.Open Then connection.Connection.Open()
+
+            Dim i As Integer = 0
+            Dim Param As Object
+
+            connection.Adapter.SelectCommand.Parameters.Clear()
+            connection.Adapter.SelectCommand.CommandType = CommandType.StoredProcedure
+            connection.Adapter.SelectCommand.CommandText = "Slab_Tolidi_Update"
+
+            Dim sqlparams(4) As SqlParameter
+            sqlparams(0) = New SqlParameter("@slabId", slabId)
+            sqlparams(1) = New SqlParameter("@slabName", slabName)
+            sqlparams(2) = New SqlParameter("@slabNameEng", slabNameEng)
+            sqlparams(3) = New SqlParameter("@Description", Description)
+            sqlparams(4) = New SqlParameter
+            sqlparams(4).Direction = Data.ParameterDirection.Output
+            sqlparams(4).ParameterName = "@output"
+            sqlparams(4).DbType = Data.DbType.Decimal
+
+
+            For Each Param In sqlparams
+                connection.Adapter.SelectCommand.Parameters.Add(sqlparams(i))
+                i += 1
+            Next
+
+            connection.Adapter.SelectCommand.ExecuteNonQuery()
+            If connection.Connection.State <> ConnectionState.Closed Then connection.Connection.Close()
+            Return sqlparams(4).Value.ToString
+
+        Catch ex As Exception
+            Return 1
+        Finally
+        End Try
+    End Function
+
+
+    Public Function Slab_Tolidi_Delete(ByVal slabId As Decimal)
+        Try
+            Dim connection As New Connection
+            If connection.Connection.State <> ConnectionState.Open Then connection.Connection.Open()
+
+            Dim i As Integer = 0
+            Dim Param As Object
+
+            connection.Adapter.SelectCommand.Parameters.Clear()
+            connection.Adapter.SelectCommand.CommandType = CommandType.StoredProcedure
+            connection.Adapter.SelectCommand.CommandText = "Slab_Tolidi_Delete"
+
+            Dim sqlparams(1) As SqlParameter
+            sqlparams(0) = New SqlParameter("@slabId", slabId)
+            sqlparams(1) = New SqlParameter
+            sqlparams(1).Direction = Data.ParameterDirection.Output
+            sqlparams(1).ParameterName = "@output"
+            sqlparams(1).DbType = Data.DbType.Decimal
+
+
+            For Each Param In sqlparams
+                connection.Adapter.SelectCommand.Parameters.Add(sqlparams(i))
+                i += 1
+            Next
+
+            connection.Adapter.SelectCommand.ExecuteNonQuery()
+            If connection.Connection.State <> ConnectionState.Closed Then connection.Connection.Close()
+            Return sqlparams(1).Value.ToString
+
+        Catch ex As Exception
+            Return 1
+        Finally
+        End Try
+    End Function
+
+    Public Function Slab_kharidani_Insert(ByVal slabId As Decimal, ByVal slabName As String, ByVal SlabType As Integer,
+                                       slabNameEng As String, ByVal Description As String, ByVal FileName As String)
+
+        Try
+            Dim connection As New Connection
+            If connection.Connection.State <> ConnectionState.Open Then connection.Connection.Open()
+
+            Dim i As Integer = 0
+            Dim Param As Object
+
+            connection.Adapter.SelectCommand.Parameters.Clear()
+            connection.Adapter.SelectCommand.CommandType = CommandType.StoredProcedure
+            connection.Adapter.SelectCommand.CommandText = "Slab_kharidani_Insert"
+
+            Dim sqlparams(6) As SqlParameter
+            sqlparams(0) = New SqlParameter("@slabId", slabId)
+            sqlparams(1) = New SqlParameter("@slabName", slabName)
+            sqlparams(2) = New SqlParameter("@slabNameEng", slabNameEng)
+            sqlparams(3) = New SqlParameter("@Description", Description)
+            sqlparams(4) = New SqlParameter("@FileName", FileName)
+            sqlparams(5) = New SqlParameter("@SlabType", SlabType)
+            sqlparams(6) = New SqlParameter
+            sqlparams(6).Direction = Data.ParameterDirection.Output
+            sqlparams(6).ParameterName = "@output"
+            sqlparams(6).DbType = Data.DbType.Decimal
+
+
+            For Each Param In sqlparams
+                connection.Adapter.SelectCommand.Parameters.Add(sqlparams(i))
+                i += 1
+            Next
+
+            connection.Adapter.SelectCommand.ExecuteNonQuery()
+            If connection.Connection.State <> ConnectionState.Closed Then connection.Connection.Close()
+            Return sqlparams(6).Value.ToString
+
+        Catch ex As Exception
+            Return 1
+        Finally
+        End Try
+    End Function
+
+
+    Public Function Slab_kharidani_Update(ByVal slabId As Decimal, ByVal slabName As String, slabNameEng As String, ByVal Description As String)
+        Try
+            Dim connection As New Connection
+            If connection.Connection.State <> ConnectionState.Open Then connection.Connection.Open()
+
+            Dim i As Integer = 0
+            Dim Param As Object
+
+            connection.Adapter.SelectCommand.Parameters.Clear()
+            connection.Adapter.SelectCommand.CommandType = CommandType.StoredProcedure
+            connection.Adapter.SelectCommand.CommandText = "Slab_kharidani_Update"
+
+            Dim sqlparams(4) As SqlParameter
+            sqlparams(0) = New SqlParameter("@slabId", slabId)
+            sqlparams(1) = New SqlParameter("@slabName", slabName)
+            sqlparams(2) = New SqlParameter("@slabNameEng", slabNameEng)
+            sqlparams(3) = New SqlParameter("@Description", Description)
+            sqlparams(4) = New SqlParameter
+            sqlparams(4).Direction = Data.ParameterDirection.Output
+            sqlparams(4).ParameterName = "@output"
+            sqlparams(4).DbType = Data.DbType.Decimal
+
+
+            For Each Param In sqlparams
+                connection.Adapter.SelectCommand.Parameters.Add(sqlparams(i))
+                i += 1
+            Next
+
+            connection.Adapter.SelectCommand.ExecuteNonQuery()
+            If connection.Connection.State <> ConnectionState.Closed Then connection.Connection.Close()
+            Return sqlparams(4).Value.ToString
+
+        Catch ex As Exception
+            Return 1
+        Finally
+        End Try
+    End Function
+
+
+    Public Function Slab_kharidani_Delete(ByVal slabId As Decimal)
+        Try
+            Dim connection As New Connection
+            If connection.Connection.State <> ConnectionState.Open Then connection.Connection.Open()
+
+            Dim i As Integer = 0
+            Dim Param As Object
+
+            connection.Adapter.SelectCommand.Parameters.Clear()
+            connection.Adapter.SelectCommand.CommandType = CommandType.StoredProcedure
+            connection.Adapter.SelectCommand.CommandText = "Slab_kharidani_Delete"
+
+            Dim sqlparams(1) As SqlParameter
+            sqlparams(0) = New SqlParameter("@slabId", slabId)
+            sqlparams(1) = New SqlParameter
+            sqlparams(1).Direction = Data.ParameterDirection.Output
+            sqlparams(1).ParameterName = "@output"
+            sqlparams(1).DbType = Data.DbType.Decimal
+
+
+            For Each Param In sqlparams
+                connection.Adapter.SelectCommand.Parameters.Add(sqlparams(i))
+                i += 1
+            Next
+
+            connection.Adapter.SelectCommand.ExecuteNonQuery()
+            If connection.Connection.State <> ConnectionState.Closed Then connection.Connection.Close()
+            Return sqlparams(1).Value.ToString
+
+        Catch ex As Exception
+            Return 1
+        Finally
+        End Try
+    End Function
+
+    Public Function Slab_Sefareshi_Insert(ByVal slabId As Decimal, ByVal slabName As String, ByVal SlabType As Integer,
+                                       slabNameEng As String, ByVal Description As String, ByVal FileName As String)
+
+        Try
+            Dim connection As New Connection
+            If connection.Connection.State <> ConnectionState.Open Then connection.Connection.Open()
+
+            Dim i As Integer = 0
+            Dim Param As Object
+
+            connection.Adapter.SelectCommand.Parameters.Clear()
+            connection.Adapter.SelectCommand.CommandType = CommandType.StoredProcedure
+            connection.Adapter.SelectCommand.CommandText = "Slab_Sefareshi_Insert"
+
+            Dim sqlparams(6) As SqlParameter
+            sqlparams(0) = New SqlParameter("@slabId", slabId)
+            sqlparams(1) = New SqlParameter("@slabName", slabName)
+            sqlparams(2) = New SqlParameter("@slabNameEng", slabNameEng)
+            sqlparams(3) = New SqlParameter("@Description", Description)
+            sqlparams(4) = New SqlParameter("@FileName", FileName)
+            sqlparams(5) = New SqlParameter("@SlabType", SlabType)
+            sqlparams(6) = New SqlParameter
+            sqlparams(6).Direction = Data.ParameterDirection.Output
+            sqlparams(6).ParameterName = "@output"
+            sqlparams(6).DbType = Data.DbType.Decimal
+
+
+            For Each Param In sqlparams
+                connection.Adapter.SelectCommand.Parameters.Add(sqlparams(i))
+                i += 1
+            Next
+
+            connection.Adapter.SelectCommand.ExecuteNonQuery()
+            If connection.Connection.State <> ConnectionState.Closed Then connection.Connection.Close()
+            Return sqlparams(6).Value.ToString
+
+        Catch ex As Exception
+            Return 1
+        Finally
+        End Try
+    End Function
+
+
+    Public Function Slab_Sefareshi_Update(ByVal slabId As Decimal, ByVal slabName As String, slabNameEng As String, ByVal Description As String)
+        Try
+            Dim connection As New Connection
+            If connection.Connection.State <> ConnectionState.Open Then connection.Connection.Open()
+
+            Dim i As Integer = 0
+            Dim Param As Object
+
+            connection.Adapter.SelectCommand.Parameters.Clear()
+            connection.Adapter.SelectCommand.CommandType = CommandType.StoredProcedure
+            connection.Adapter.SelectCommand.CommandText = "Slab_Sefareshi_Update"
+
+            Dim sqlparams(4) As SqlParameter
+            sqlparams(0) = New SqlParameter("@slabId", slabId)
+            sqlparams(1) = New SqlParameter("@slabName", slabName)
+            sqlparams(2) = New SqlParameter("@slabNameEng", slabNameEng)
+            sqlparams(3) = New SqlParameter("@Description", Description)
+            sqlparams(4) = New SqlParameter
+            sqlparams(4).Direction = Data.ParameterDirection.Output
+            sqlparams(4).ParameterName = "@output"
+            sqlparams(4).DbType = Data.DbType.Decimal
+
+
+            For Each Param In sqlparams
+                connection.Adapter.SelectCommand.Parameters.Add(sqlparams(i))
+                i += 1
+            Next
+
+            connection.Adapter.SelectCommand.ExecuteNonQuery()
+            If connection.Connection.State <> ConnectionState.Closed Then connection.Connection.Close()
+            Return sqlparams(4).Value.ToString
+
+        Catch ex As Exception
+            Return 1
+        Finally
+        End Try
+    End Function
+
+
+    Public Function Slab_Sefareshi_Delete(ByVal slabId As Decimal)
+        Try
+            Dim connection As New Connection
+            If connection.Connection.State <> ConnectionState.Open Then connection.Connection.Open()
+
+            Dim i As Integer = 0
+            Dim Param As Object
+
+            connection.Adapter.SelectCommand.Parameters.Clear()
+            connection.Adapter.SelectCommand.CommandType = CommandType.StoredProcedure
+            connection.Adapter.SelectCommand.CommandText = "Slab_Sefareshi_Delete"
+
+            Dim sqlparams(1) As SqlParameter
+            sqlparams(0) = New SqlParameter("@slabId", slabId)
+            sqlparams(1) = New SqlParameter
+            sqlparams(1).Direction = Data.ParameterDirection.Output
+            sqlparams(1).ParameterName = "@output"
+            sqlparams(1).DbType = Data.DbType.Decimal
+
+
+            For Each Param In sqlparams
+                connection.Adapter.SelectCommand.Parameters.Add(sqlparams(i))
+                i += 1
+            Next
+
+            connection.Adapter.SelectCommand.ExecuteNonQuery()
+            If connection.Connection.State <> ConnectionState.Closed Then connection.Connection.Close()
+            Return sqlparams(1).Value.ToString
+
+        Catch ex As Exception
+            Return 1
+        Finally
+        End Try
+    End Function
+
+    Public Function Slab_Masrafi_Insert(ByVal slabId As Decimal, ByVal slabName As String, ByVal SlabType As Integer,
+                                       slabNameEng As String, ByVal Description As String, ByVal FileName As String)
+
+        Try
+            Dim connection As New Connection
+            If connection.Connection.State <> ConnectionState.Open Then connection.Connection.Open()
+
+            Dim i As Integer = 0
+            Dim Param As Object
+
+            connection.Adapter.SelectCommand.Parameters.Clear()
+            connection.Adapter.SelectCommand.CommandType = CommandType.StoredProcedure
+            connection.Adapter.SelectCommand.CommandText = "Slab_Masrafi_Insert"
+
+            Dim sqlparams(6) As SqlParameter
+            sqlparams(0) = New SqlParameter("@slabId", slabId)
+            sqlparams(1) = New SqlParameter("@slabName", slabName)
+            sqlparams(2) = New SqlParameter("@slabNameEng", slabNameEng)
+            sqlparams(3) = New SqlParameter("@Description", Description)
+            sqlparams(4) = New SqlParameter("@FileName", FileName)
+            sqlparams(5) = New SqlParameter("@SlabType", SlabType)
+            sqlparams(6) = New SqlParameter
+            sqlparams(6).Direction = Data.ParameterDirection.Output
+            sqlparams(6).ParameterName = "@output"
+            sqlparams(6).DbType = Data.DbType.Decimal
+
+
+            For Each Param In sqlparams
+                connection.Adapter.SelectCommand.Parameters.Add(sqlparams(i))
+                i += 1
+            Next
+
+            connection.Adapter.SelectCommand.ExecuteNonQuery()
+            If connection.Connection.State <> ConnectionState.Closed Then connection.Connection.Close()
+            Return sqlparams(6).Value.ToString
+
+        Catch ex As Exception
+            Return 1
+        Finally
+        End Try
+    End Function
+
+
+    Public Function Slab_Masrafi_Update(ByVal slabId As Decimal, ByVal slabName As String, slabNameEng As String, ByVal Description As String)
+        Try
+            Dim connection As New Connection
+            If connection.Connection.State <> ConnectionState.Open Then connection.Connection.Open()
+
+            Dim i As Integer = 0
+            Dim Param As Object
+
+            connection.Adapter.SelectCommand.Parameters.Clear()
+            connection.Adapter.SelectCommand.CommandType = CommandType.StoredProcedure
+            connection.Adapter.SelectCommand.CommandText = "Slab_Masrafi_Update"
+
+            Dim sqlparams(4) As SqlParameter
+            sqlparams(0) = New SqlParameter("@slabId", slabId)
+            sqlparams(1) = New SqlParameter("@slabName", slabName)
+            sqlparams(2) = New SqlParameter("@slabNameEng", slabNameEng)
+            sqlparams(3) = New SqlParameter("@Description", Description)
+            sqlparams(4) = New SqlParameter
+            sqlparams(4).Direction = Data.ParameterDirection.Output
+            sqlparams(4).ParameterName = "@output"
+            sqlparams(4).DbType = Data.DbType.Decimal
+
+
+            For Each Param In sqlparams
+                connection.Adapter.SelectCommand.Parameters.Add(sqlparams(i))
+                i += 1
+            Next
+
+            connection.Adapter.SelectCommand.ExecuteNonQuery()
+            If connection.Connection.State <> ConnectionState.Closed Then connection.Connection.Close()
+            Return sqlparams(4).Value.ToString
+
+        Catch ex As Exception
+            Return 1
+        Finally
+        End Try
+    End Function
+
+
+    Public Function Slab_Masrafi_Delete(ByVal slabId As Decimal)
+        Try
+            Dim connection As New Connection
+            If connection.Connection.State <> ConnectionState.Open Then connection.Connection.Open()
+
+            Dim i As Integer = 0
+            Dim Param As Object
+
+            connection.Adapter.SelectCommand.Parameters.Clear()
+            connection.Adapter.SelectCommand.CommandType = CommandType.StoredProcedure
+            connection.Adapter.SelectCommand.CommandText = "Slab_Masrafi_Delete"
+
+            Dim sqlparams(1) As SqlParameter
+            sqlparams(0) = New SqlParameter("@slabId", slabId)
+            sqlparams(1) = New SqlParameter
+            sqlparams(1).Direction = Data.ParameterDirection.Output
+            sqlparams(1).ParameterName = "@output"
+            sqlparams(1).DbType = Data.DbType.Decimal
+
+
+            For Each Param In sqlparams
+                connection.Adapter.SelectCommand.Parameters.Add(sqlparams(i))
+                i += 1
+            Next
+
+            connection.Adapter.SelectCommand.ExecuteNonQuery()
+            If connection.Connection.State <> ConnectionState.Closed Then connection.Connection.Close()
+            Return sqlparams(1).Value.ToString
+
+        Catch ex As Exception
+            Return 1
+        Finally
+        End Try
+    End Function
+
+    Public Function Slab_Abzar_Insert(ByVal slabId As Decimal, ByVal slabName As String, ByVal SlabType As Integer,
+                                       slabNameEng As String, ByVal Description As String, ByVal FileName As String)
+
+        Try
+            Dim connection As New Connection
+            If connection.Connection.State <> ConnectionState.Open Then connection.Connection.Open()
+
+            Dim i As Integer = 0
+            Dim Param As Object
+
+            connection.Adapter.SelectCommand.Parameters.Clear()
+            connection.Adapter.SelectCommand.CommandType = CommandType.StoredProcedure
+            connection.Adapter.SelectCommand.CommandText = "Slab_Abzar_Insert"
+
+            Dim sqlparams(6) As SqlParameter
+            sqlparams(0) = New SqlParameter("@slabId", slabId)
+            sqlparams(1) = New SqlParameter("@slabName", slabName)
+            sqlparams(2) = New SqlParameter("@slabNameEng", slabNameEng)
+            sqlparams(3) = New SqlParameter("@Description", Description)
+            sqlparams(4) = New SqlParameter("@FileName", FileName)
+            sqlparams(5) = New SqlParameter("@SlabType", SlabType)
+            sqlparams(6) = New SqlParameter
+            sqlparams(6).Direction = Data.ParameterDirection.Output
+            sqlparams(6).ParameterName = "@output"
+            sqlparams(6).DbType = Data.DbType.Decimal
+
+
+            For Each Param In sqlparams
+                connection.Adapter.SelectCommand.Parameters.Add(sqlparams(i))
+                i += 1
+            Next
+
+            connection.Adapter.SelectCommand.ExecuteNonQuery()
+            If connection.Connection.State <> ConnectionState.Closed Then connection.Connection.Close()
+            Return sqlparams(6).Value.ToString
+
+        Catch ex As Exception
+            Return 1
+        Finally
+        End Try
+    End Function
+
+
+    Public Function Slab_Abzar_Update(ByVal slabId As Decimal, ByVal slabName As String, slabNameEng As String, ByVal Description As String)
+        Try
+            Dim connection As New Connection
+            If connection.Connection.State <> ConnectionState.Open Then connection.Connection.Open()
+
+            Dim i As Integer = 0
+            Dim Param As Object
+
+            connection.Adapter.SelectCommand.Parameters.Clear()
+            connection.Adapter.SelectCommand.CommandType = CommandType.StoredProcedure
+            connection.Adapter.SelectCommand.CommandText = "Slab_Abzar_Update"
+
+            Dim sqlparams(4) As SqlParameter
+            sqlparams(0) = New SqlParameter("@slabId", slabId)
+            sqlparams(1) = New SqlParameter("@slabName", slabName)
+            sqlparams(2) = New SqlParameter("@slabNameEng", slabNameEng)
+            sqlparams(3) = New SqlParameter("@Description", Description)
+            sqlparams(4) = New SqlParameter
+            sqlparams(4).Direction = Data.ParameterDirection.Output
+            sqlparams(4).ParameterName = "@output"
+            sqlparams(4).DbType = Data.DbType.Decimal
+
+
+            For Each Param In sqlparams
+                connection.Adapter.SelectCommand.Parameters.Add(sqlparams(i))
+                i += 1
+            Next
+
+            connection.Adapter.SelectCommand.ExecuteNonQuery()
+            If connection.Connection.State <> ConnectionState.Closed Then connection.Connection.Close()
+            Return sqlparams(4).Value.ToString
+
+        Catch ex As Exception
+            Return 1
+        Finally
+        End Try
+    End Function
+
+
+    Public Function Slab_Abzar_Delete(ByVal slabId As Decimal)
+        Try
+            Dim connection As New Connection
+            If connection.Connection.State <> ConnectionState.Open Then connection.Connection.Open()
+
+            Dim i As Integer = 0
+            Dim Param As Object
+
+            connection.Adapter.SelectCommand.Parameters.Clear()
+            connection.Adapter.SelectCommand.CommandType = CommandType.StoredProcedure
+            connection.Adapter.SelectCommand.CommandText = "Slab_Abzar_Delete"
+
+            Dim sqlparams(1) As SqlParameter
+            sqlparams(0) = New SqlParameter("@slabId", slabId)
+            sqlparams(1) = New SqlParameter
+            sqlparams(1).Direction = Data.ParameterDirection.Output
+            sqlparams(1).ParameterName = "@output"
+            sqlparams(1).DbType = Data.DbType.Decimal
+
+
+            For Each Param In sqlparams
+                connection.Adapter.SelectCommand.Parameters.Add(sqlparams(i))
+                i += 1
+            Next
+
+            connection.Adapter.SelectCommand.ExecuteNonQuery()
+            If connection.Connection.State <> ConnectionState.Closed Then connection.Connection.Close()
+            Return sqlparams(1).Value.ToString
+
+        Catch ex As Exception
+            Return 1
+        Finally
+        End Try
+    End Function
+    Public Function Slab_Archive_Insert(ByVal slabId As Decimal, ByVal slabName As String, slabNameEng As String,
+                                        ByVal Description As String, ByVal FileName As String)
+        Try
+            Dim connection As New Connection
+            If connection.Connection.State <> ConnectionState.Open Then connection.Connection.Open()
+
+            Dim i As Integer = 0
+            Dim Param As Object
+
+            connection.Adapter.SelectCommand.Parameters.Clear()
+            connection.Adapter.SelectCommand.CommandType = CommandType.StoredProcedure
+            connection.Adapter.SelectCommand.CommandText = "Slab_Archive_Insert"
+
+            Dim sqlparams(5) As SqlParameter
+            sqlparams(0) = New SqlParameter("@slabId", slabId)
+            sqlparams(1) = New SqlParameter("@slabName", slabName)
+            sqlparams(2) = New SqlParameter("@slabNameEng", slabNameEng)
+            sqlparams(3) = New SqlParameter("@Description", Description)
+            sqlparams(4) = New SqlParameter("@FileName", FileName)
+            sqlparams(5) = New SqlParameter
+            sqlparams(5).Direction = Data.ParameterDirection.Output
+            sqlparams(5).ParameterName = "@output"
+            sqlparams(5).DbType = Data.DbType.Decimal
+
+
+            For Each Param In sqlparams
+                connection.Adapter.SelectCommand.Parameters.Add(sqlparams(i))
+                i += 1
+            Next
+
+            connection.Adapter.SelectCommand.ExecuteNonQuery()
+            If connection.Connection.State <> ConnectionState.Closed Then connection.Connection.Close()
+            Return sqlparams(5).Value.ToString
+
+        Catch ex As Exception
+            Return 1
+        Finally
+        End Try
+    End Function
 End Class
