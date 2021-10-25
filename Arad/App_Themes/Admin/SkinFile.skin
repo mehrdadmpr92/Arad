@@ -1,7 +1,7 @@
 ﻿
                       <asp:GridView SkinID="GV_Skin"  runat="server" style="font-size: 12pt; font-family:B Koodak,'B mitra'; width: 98%;" 
                 BorderColor="#9299AC"   BorderStyle="Solid" BorderWidth="2px" CellPadding="6" AutoGenerateColumns="False">
-                    <HeaderStyle  BackColor="#333333" Font-Names="B Koodak,'B mitra'" Font-Size="12pt" ForeColor="White"
+                    <HeaderStyle  BackColor="#272c33" Font-Names="B Koodak,'B mitra'" Font-Size="12pt" ForeColor="White"
                         Height="35px" HorizontalAlign="Center" VerticalAlign="Middle" BorderColor="#9299AC" BorderStyle="Solid" BorderWidth="2px" />
                     <RowStyle BorderColor="#9299AC" BorderStyle="Solid" BorderWidth="2px" />
                     <EmptyDataRowStyle BorderColor="#9299AC" BorderStyle="Solid" BorderWidth="2px" />

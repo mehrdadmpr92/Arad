@@ -3,7 +3,8 @@ Imports System.Data.SqlClient
 
 Public Class Slabs
 
-    Public Function SlabSelect(ByVal slabType As Integer)
+
+    Public Function SlabsSelectBySearch(ByVal slabType As Integer, ByVal slabId As Decimal)
         Try
             Dim connection As New Connection
             If connection.Connection.State <> ConnectionState.Open Then connection.Connection.Open()
@@ -13,7 +14,41 @@ Public Class Slabs
 
             connection.Adapter.SelectCommand.Parameters.Clear()
             connection.Adapter.SelectCommand.CommandType = CommandType.StoredProcedure
-            connection.Adapter.SelectCommand.CommandText = "SlabSelect"
+            connection.Adapter.SelectCommand.CommandText = "SlabsSelectBySearch"
+
+            Dim sqlparams(1) As SqlParameter
+            sqlparams(0) = New SqlParameter("@slabType", slabType)
+            sqlparams(1) = New SqlParameter("@slabId", slabId)
+
+            For Each Param In sqlparams
+                connection.Adapter.SelectCommand.Parameters.Add(sqlparams(i))
+                i += 1
+            Next
+
+
+            connection.DataTable = New DataTable("Table")
+            connection.Adapter.Fill(connection.DataTable)
+            If connection.Connection.State <> ConnectionState.Closed Then connection.Connection.Close()
+            Return connection.DataTable
+
+        Catch ex As Exception
+            Return Nothing
+        Finally
+        End Try
+    End Function
+
+
+    Public Function SlabsSelectByType(ByVal slabType As Integer)
+        Try
+            Dim connection As New Connection
+            If connection.Connection.State <> ConnectionState.Open Then connection.Connection.Open()
+
+            Dim i As Integer = 0
+            Dim Param As Object
+
+            connection.Adapter.SelectCommand.Parameters.Clear()
+            connection.Adapter.SelectCommand.CommandType = CommandType.StoredProcedure
+            connection.Adapter.SelectCommand.CommandText = "SlabsSelectByType"
 
             Dim sqlparams(0) As SqlParameter
             sqlparams(0) = New SqlParameter("@slabType", slabType)

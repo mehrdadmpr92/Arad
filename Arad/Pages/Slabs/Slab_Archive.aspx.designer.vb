@@ -41,6 +41,51 @@ Partial Public Class Slab_Archive
     Protected WithEvents ArchiveArchive As Global.System.Web.UI.WebControls.View
 
     '''<summary>
+    '''SlabType_Chk control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents SlabType_Chk As Global.System.Web.UI.WebControls.CheckBox
+
+    '''<summary>
+    '''SlabType_RBtn control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents SlabType_RBtn As Global.System.Web.UI.WebControls.RadioButtonList
+
+    '''<summary>
+    '''SlabId_Chk control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents SlabId_Chk As Global.System.Web.UI.WebControls.CheckBox
+
+    '''<summary>
+    '''SlabId_Txt control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents SlabId_Txt As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''Search_Btn control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Search_Btn As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
     '''DG_Archive control.
     '''</summary>
     '''<remarks>
@@ -48,13 +93,4 @@ Partial Public Class Slab_Archive
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents DG_Archive As Global.System.Web.UI.WebControls.GridView
-
-    '''<summary>
-    '''Return_Btn control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Return_Btn As Global.System.Web.UI.WebControls.Button
 End Class

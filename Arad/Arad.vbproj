@@ -112,6 +112,13 @@
       <DependentUpon>Slab_Archive.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="Pages\Slabs\Slab_Insert_Abzar.aspx.designer.vb">
+      <DependentUpon>Slab_Insert_Abzar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Slabs\Slab_Insert_Abzar.aspx.vb">
+      <DependentUpon>Slab_Insert_Abzar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Pages\Slabs\Slab_Insert_Kharidani.aspx.designer.vb">
       <DependentUpon>Slab_Insert_Kharidani.aspx</DependentUpon>
     </Compile>
@@ -187,6 +194,7 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Content Include="Pages\Slabs\Slab_Archive.aspx" />
+    <Content Include="Pages\Slabs\Slab_Insert_Abzar.aspx" />
     <Content Include="Pages\Slabs\Slab_Insert_Assembly.aspx" />
     <Content Include="Pages\Slabs\Slab_Insert_Kharidani.aspx" />
     <Content Include="Pages\Slabs\Slab_Insert_Sefareshi.aspx" />

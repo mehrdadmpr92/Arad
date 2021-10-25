@@ -18,7 +18,7 @@
         Dim slab As New Slabs
         Dim general As New General
         Dim slabType = 0
-        tbl = slab.SlabSelect(slabType)
+        tbl = slab.SlabsSelectByType(slabType)
         If tbl.Rows.Count > 0 Then
             general.DropDownFill(Avvaliye_DD, "FullName", "SlabId", tbl)
         End If
