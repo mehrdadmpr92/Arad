@@ -96,6 +96,8 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Code\General\DateSelector.vb" />
+    <Compile Include="App_Code\General\General.vb" />
     <Compile Include="Components\SlabId_Check\SlabId_Check.ascx.designer.vb">
       <DependentUpon>SlabId_Check.ascx</DependentUpon>
     </Compile>
@@ -2713,7 +2715,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Code\General\" />
     <Folder Include="Uploads\Slabs\" />
   </ItemGroup>
   <ItemGroup>

@@ -6,17 +6,74 @@
         Try
             Page.Title = "ثبت قطعه تولیدی"
             Me.MultiView1.SetActiveView(TolidiSubmit)
-
-
+            Slab_Avvaliye_DD_Fill()
+            SlabBorade_DD_Fill()
         Catch ex As Exception
         End Try
 
     End Sub
 
+    Private Sub Slab_Avvaliye_DD_Fill()
+        Dim tbl As New Data.DataTable
+        Dim slab As New Slabs
+        Dim general As New General
+        Dim slabType = 0
+        tbl = slab.SlabSelect(slabType)
+        If tbl.Rows.Count > 0 Then
+            general.DropDownFill(Avvaliye_DD, "FullName", "SlabId", tbl)
+        End If
+    End Sub
+
+    Private Sub SlabBorade_DD_Fill()
+        Dim tbl As New Data.DataTable
+        Dim slab As New Slabs
+        Dim general As New General
+        tbl = slab.SlabBoradeSelect()
+        If tbl.Rows.Count > 0 Then
+            general.DropDownFill(TabageyeBorade_DD, "BoradeName", "SabetId", tbl)
+        End If
+    End Sub
+
     Protected Sub Submit_Btn_Click(sender As Object, e As EventArgs)
         Try
             Dim slab As New Slabs
+            Dim tbl As New Data.DataTable
+            Dim tbl2 As New Data.DataTable
+            Dim dateSelector As New DateSelector
 
+            If SlabFile.fileLength = 0 Then
+                Me.Message.ErrMessages(Arad.Message.MessageType.Warning) = "وارد کردن فایل پیوستی الزامی می باشد."
+                Exit Sub
+            End If
+
+
+            If (SlabFile.filename.ToString <> SlabIdCheck_Txt.Text) Then
+                Me.Message.ErrMessages(Arad.Message.MessageType.Err) = "نام فایل بایستی با شماره قطعه یکی باشد."
+                Exit Sub
+            End If
+
+            If (SlabIdCheck_Txt.Text.Length <> 10) Then
+                Me.Message.ErrMessages(Arad.Message.MessageType.Err) = "شماره قطعه بایستی ده رقمی باشد."
+                Exit Sub
+            End If
+
+            If (SlabIdCheck_Txt.Text.Length <> 10) Then
+                Me.Message.ErrMessages(Arad.Message.MessageType.Err) = "شماره قطعه بایستی ده رقمی باشد."
+                Exit Sub
+            End If
+
+
+            tbl = slab.SlabSelect_BySlabId(SlabIdCheck_Txt.Text)
+            If (tbl.Rows.Count > 0) Then
+                Me.Message.ErrMessages(Arad.Message.MessageType.Err) = "شماره قطعه وارده در سیستم موجود می باشد."
+                Exit Sub
+            End If
+
+            tbl2 = slab.SlabSelect_BySlabId(Avvaliye_DD.SelectedValue)
+            If (tbl2.Rows.Count = 0) Then
+                Me.Message.ErrMessages(Arad.Message.MessageType.Err) = "  کد ماده اولیه در سیستم موجود نمی باشد."
+                Exit Sub
+            End If
 
             If SlabFile.fileselect Then
                 SlabFile.File.PostedFile.SaveAs(Server.MapPath(".\Temp\") + "..\..\..\Uploads\Slabs\" &
@@ -33,12 +90,6 @@
                 Me.ViewState("SlabFile") = "0"
             End If
 
-            If (SlabFile.filename.ToString <> SlabId_Txt.Text) Then
-                Me.Message.ErrMessages(Arad.Message.MessageType.Success) = "نام فایل بایستی با شماره قطعه یکی باشد."
-                Exit Sub
-
-            End If
-
 
 
 
@@ -46,14 +97,21 @@
 
             Dim slabType As String = 1
 
-            Dim err As String = slab.Slab_Tolidi_Insert(SlabId_Txt.Text, PerSlabName_Txt.Text, slabType,
-                                                        SlabName_Txt.Text, SlabDesc_Txt.Text, Me.ViewState("SlabFile"))
+            Dim err As String = slab.Slab_Tolidi_Insert(SlabIdCheck_Txt.Text, PerSlabName_Txt.Text, slabType,
+                                                        SlabName_Txt.Text, Convert.ToDecimal(Megdar_Txt.Text),
+                                                        Convert.ToDecimal(VazneMasrafi_Txt.Text), Convert.ToDecimal(VazneKhales_Txt.Text),
+                                                        TabageyeBorade_DD.SelectedValue, Convert.ToDecimal(TedadeHasele_Txt.Text),
+                                                        Me.ViewState("SlabFile"), SlabDesc_Txt.Text, dateSelector.today_Date_Fa)
+
 
             If err = 0 Then
-                SlabId_Txt.Text = ""
+                SlabIdCheck_Txt.Text = ""
                 PerSlabName_Txt.Text = ""
                 SlabName_Txt.Text = ""
                 SlabDesc_Txt.Text = ""
+                Megdar_Txt.Text = ""
+                VazneMasrafi_Txt.Text = ""
+                VazneKhales_Txt.Text = ""
                 Me.ViewState("SlabFile") = "0"
 
 
@@ -74,78 +132,19 @@
         Me.MultiView1.SetActiveView(TolidiSubmit)
     End Sub
 
-    Protected Sub LbtEdit_Click_Click(sender As Object, e As EventArgs)
-        Try
-            Dim lbt As New LinkButton
-            lbt = sender
-            Me.ViewState("EditSlabId") = lbt.CommandArgument
 
-            Dim slabId As Decimal = lbt.CommandArgument
-            Me.MultiView1.SetActiveView(ViewEdit)
+    Protected Sub AvvaliyehSearch_Txt_SelectedIndexChanged(sender As Object, e As EventArgs) Handles AvvaliyehSearch_Txt.TextChanged
 
-            Dim slab As New Slabs
-            Dim table As New Data.DataTable
+        Dim table As New Data.DataTable
+        Dim slab As New Slabs
+        Dim general As New General
 
-            table = slab.SlabSelect_BySlabId(slabId)
-            If table.Rows.Count = 1 Then
-                SlabIdEdit_Txt.Text = slabId
-                SlabNameEdit_Txt.Text = table.Rows(0).Item("SlabNameEng").ToString
-                PerSlabNameEdit_Txt.Text = table.Rows(0).Item("SlabName").ToString
-                SlabDescEdit_Txt.Text = table.Rows(0).Item("Description").ToString
-            Else
-                'درخواست شما با مشکل مواجه شد
-            End If
-        Catch ex As Exception
+        If (AvvaliyehSearch_Txt.Text = "") Then
+            Slab_Avvaliye_DD_Fill()
+        Else
+            table = slab.SlabSelect_LikeSlabId(AvvaliyehSearch_Txt.Text)
+            general.DropDownFill(Avvaliye_DD, "FullName", "SlabId", table)
 
-        End Try
-    End Sub
-
-    Protected Sub Edit_Btn_Click(sender As Object, e As EventArgs)
-        Try
-            Dim slab As New Slabs
-
-            If (PerSlabNameEdit_Txt.Text = "") Then
-                Me.Message.ErrMessages(Arad.Message.MessageType.Warning) = "نام قطعه الزامی می باشد"
-            Else
-
-                Dim err As String = slab.Slab_Tolidi_Update(Me.ViewState("EditSlabId"), PerSlabNameEdit_Txt.Text,
-                                                      SlabNameEdit_Txt.Text, SlabDescEdit_Txt.Text)
-
-                If err = 0 Then
-                    SlabIdEdit_Txt.Text = ""
-                    PerSlabNameEdit_Txt.Text = ""
-                    SlabNameEdit_Txt.Text = ""
-                    SlabDescEdit_Txt.Text = ""
-                    Me.ViewState("EditSlabId") = ""
-
-
-
-                Else
-                End If
-            End If
-        Catch ex As Exception
-
-        End Try
-
-    End Sub
-
-    Protected Sub Delete_Btn_Click(sender As Object, e As EventArgs)
-        Try
-            Dim btn As New LinkButton
-            btn = sender
-            Me.ViewState("Delete_SlabId") = btn.CommandArgument
-
-            Dim slab As New Slabs
-            Dim err As String = slab.Slab_Tolidi_Delete(Me.ViewState("Delete_SlabId"))
-
-            If err = 0 Then
-                Me.ViewState("Delete_SlabId") = ""
-
-
-            Else
-            End If
-        Catch ex As Exception
-
-        End Try
+        End If
     End Sub
 End Class
