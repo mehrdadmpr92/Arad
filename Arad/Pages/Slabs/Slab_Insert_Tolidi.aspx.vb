@@ -6,8 +6,11 @@
         Try
             Page.Title = "ثبت قطعه تولیدی"
             Me.MultiView1.SetActiveView(TolidiSubmit)
-            Slab_Avvaliye_DD_Fill()
-            SlabBorade_DD_Fill()
+            If (Page.IsPostBack = False) Then
+                Slab_Avvaliye_DD_Fill()
+                SlabBorade_DD_Fill()
+            End If
+
         Catch ex As Exception
         End Try
 
@@ -76,13 +79,7 @@
             End If
 
             If SlabFile.fileselect Then
-                SlabFile.File.PostedFile.SaveAs(Server.MapPath(".\Temp\") + "..\..\..\Uploads\Slabs\" &
-                                                Date.Now.Hour.ToString &
-                                                Date.Now.Minute.ToString +
-                                                "_" +
-                                                SlabFile.filename +
-                                                SlabFile.filetype
-                                                )
+
 
                 Me.ViewState("SlabFile") = "..\..\..\Uploads\Slabs\" & Date.Now.Hour.ToString & Date.Now.Minute.ToString + "_" + SlabFile.filename + SlabFile.filetype
 
@@ -101,10 +98,20 @@
                                                         SlabName_Txt.Text, Convert.ToDecimal(Megdar_Txt.Text),
                                                         Convert.ToDecimal(VazneMasrafi_Txt.Text), Convert.ToDecimal(VazneKhales_Txt.Text),
                                                         TabageyeBorade_DD.SelectedValue, Convert.ToDecimal(TedadeHasele_Txt.Text),
-                                                        Me.ViewState("SlabFile"), SlabDesc_Txt.Text, dateSelector.today_Date_Fa)
+                                                        Me.ViewState("SlabFile"), SlabDesc_Txt.Text, dateSelector.today_Date_Fa,
+                                                        Avvaliye_DD.SelectedValue.ToString)
 
 
             If err = 0 Then
+                SlabFile.File.PostedFile.SaveAs(Server.MapPath(".\Temp\") + "..\..\..\Uploads\Slabs\" &
+                                                Date.Now.Hour.ToString &
+                                                Date.Now.Minute.ToString +
+                                                "_" +
+                                                SlabFile.filename +
+                                                SlabFile.filetype
+                                                )
+
+                SlabIdCheck_Txt.restore()
                 SlabIdCheck_Txt.Text = ""
                 PerSlabName_Txt.Text = ""
                 SlabName_Txt.Text = ""
@@ -113,6 +120,8 @@
                 VazneMasrafi_Txt.Text = ""
                 VazneKhales_Txt.Text = ""
                 Me.ViewState("SlabFile") = "0"
+                TedadeHasele_Txt.Text = ""
+                Slab_Avvaliye_DD_Fill()
 
 
 
@@ -138,9 +147,11 @@
         Dim table As New Data.DataTable
         Dim slab As New Slabs
         Dim general As New General
+        Me.ViewState("SlabIdAvvaliyeh") = Avvaliye_DD.SelectedValue.ToString
+
 
         If (AvvaliyehSearch_Txt.Text = "") Then
-            Slab_Avvaliye_DD_Fill()
+            Avvaliye_DD.SelectedValue = Me.ViewState("SlabIdAvvaliyeh")
         Else
             table = slab.SlabSelect_LikeSlabId(AvvaliyehSearch_Txt.Text)
             general.DropDownFill(Avvaliye_DD, "FullName", "SlabId", table)

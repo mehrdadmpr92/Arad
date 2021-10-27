@@ -260,7 +260,8 @@ Public Class Slabs
     Public Function Slab_Tolidi_Insert(ByVal slabId As Decimal, ByVal slabName As String, ByVal SlabType As Integer,
                                        slabNameEng As String, ByVal Megdar As Decimal, ByVal VaznMasrafi As Decimal,
                                        ByVal VaznKhales As Decimal, ByVal BoradeId As Decimal, ByVal Tedadhasele As Decimal,
-                                       FileName As String, ByVal Description As String, ByVal SubmitPersionDate As String)
+                                       FileName As String, ByVal Description As String, ByVal SubmitPersianDate As String,
+                                       ByVal SlabIdAvvaliyeh As String)
 
 
         Try
@@ -274,7 +275,7 @@ Public Class Slabs
             connection.Adapter.SelectCommand.CommandType = CommandType.StoredProcedure
             connection.Adapter.SelectCommand.CommandText = "Slab_Tolidi_Insert"
 
-            Dim sqlparams(12) As SqlParameter
+            Dim sqlparams(13) As SqlParameter
             sqlparams(0) = New SqlParameter("@slabId", slabId)
             sqlparams(1) = New SqlParameter("@slabName", slabName)
             sqlparams(2) = New SqlParameter("@slabNameEng", slabNameEng)
@@ -284,13 +285,14 @@ Public Class Slabs
             sqlparams(6) = New SqlParameter("@Megdar", Megdar)
             sqlparams(7) = New SqlParameter("@VaznMasrafi", VaznMasrafi)
             sqlparams(8) = New SqlParameter("@VaznKhales", VaznKhales)
-            sqlparams(9) = New SqlParameter("@SubmitPersionDate", SubmitPersionDate)
+            sqlparams(9) = New SqlParameter("@SubmitPersianDate", SubmitPersianDate)
             sqlparams(10) = New SqlParameter
             sqlparams(10).Direction = Data.ParameterDirection.Output
             sqlparams(10).ParameterName = "@output"
             sqlparams(10).DbType = Data.DbType.Decimal
             sqlparams(11) = New SqlParameter("@BoradeId", BoradeId)
             sqlparams(12) = New SqlParameter("@Tedadhasele", Tedadhasele)
+            sqlparams(13) = New SqlParameter("@SlabIdAvvaliyeh", SlabIdAvvaliyeh)
 
 
             For Each Param In sqlparams
