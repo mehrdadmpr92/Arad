@@ -38,17 +38,20 @@
             Dim table As New Data.DataTable
             Dim slab As New Slabs
 
-            Dim slabType As Decimal = 0
+            Dim slabType As String = ""
             If SlabType_Chk.Checked = False Then
-                slabType = 0
+                slabType = ""
             Else
-                slabType = SlabType_RBtn.SelectedValue
+                If SlabType_RBtn.SelectedValue = 0 Then
+                    slabType = ""
+                Else
+                    slabType = SlabType_RBtn.SelectedValue
+                End If
             End If
 
-
-            Dim slabId As Decimal = 0
+            Dim slabId As String = ""
             If SlabId_Chk.Checked = False Then
-                slabId = 0
+                slabId = ""
             Else
                 slabId = SlabId_Txt.Text
             End If

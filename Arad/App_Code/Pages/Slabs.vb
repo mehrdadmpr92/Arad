@@ -4,7 +4,7 @@ Imports System.Data.SqlClient
 Public Class Slabs
 
 
-    Public Function SlabsSelectBySearch(ByVal slabType As Integer, ByVal slabId As Decimal)
+    Public Function SlabsSelectBySearch(ByVal slabType As String, ByVal slabId As String)
         Try
             Dim connection As New Connection
             If connection.Connection.State <> ConnectionState.Open Then connection.Connection.Open()
@@ -70,7 +70,7 @@ Public Class Slabs
         End Try
     End Function
 
-    Public Function SlabSelect_BySlabId(ByVal slabId As Decimal)
+    Public Function SlabSelect_BySlabId(ByVal slabId As String)
         Try
             Dim connection As New Connection
             If connection.Connection.State <> ConnectionState.Open Then connection.Connection.Open()
@@ -102,7 +102,7 @@ Public Class Slabs
         End Try
     End Function
 
-    Public Function SlabSelect_LikeSlabId(ByVal slabId As Decimal)
+    Public Function SlabSelect_LikeSlabId(ByVal slabId As String)
         Try
             Dim connection As New Connection
             If connection.Connection.State <> ConnectionState.Open Then connection.Connection.Open()
@@ -138,7 +138,7 @@ Public Class Slabs
     '    Throw New NotImplementedException()
     'End Function
 
-    Public Function Slab_Assembly_Insert(ByVal slabId As Decimal, ByVal slabName As String, slabNameEng As String,
+    Public Function Slab_Assembly_Insert(ByVal slabId As String, ByVal slabName As String, slabNameEng As String,
                                          ByVal Description As String, ByVal FileName As String)
         Try
             Dim connection As New Connection
@@ -182,7 +182,7 @@ Public Class Slabs
         Throw New NotImplementedException()
     End Function
 
-    Public Function Slab_Assembly_Update(ByVal slabId As Decimal, ByVal slabName As String, slabNameEng As String, ByVal Description As String)
+    Public Function Slab_Assembly_Update(ByVal slabId As String, ByVal slabName As String, slabNameEng As String, ByVal Description As String)
         Try
             Dim connection As New Connection
             If connection.Connection.State <> ConnectionState.Open Then connection.Connection.Open()
@@ -221,7 +221,7 @@ Public Class Slabs
     End Function
 
 
-    Public Function Slab_Assembly_Delete(ByVal slabId As Decimal)
+    Public Function Slab_Assembly_Delete(ByVal slabId As String)
         Try
             Dim connection As New Connection
             If connection.Connection.State <> ConnectionState.Open Then connection.Connection.Open()
@@ -257,7 +257,7 @@ Public Class Slabs
     End Function
 
 
-    Public Function Slab_Tolidi_Insert(ByVal slabId As Decimal, ByVal slabName As String, ByVal SlabType As Integer,
+    Public Function Slab_Tolidi_Insert(ByVal slabId As String, ByVal slabName As String, ByVal SlabType As Integer,
                                        slabNameEng As String, ByVal Megdar As Decimal, ByVal VaznMasrafi As Decimal,
                                        ByVal VaznKhales As Decimal, ByVal BoradeId As Decimal, ByVal Tedadhasele As Decimal,
                                        FileName As String, ByVal Description As String, ByVal SubmitPersianDate As String,
@@ -311,7 +311,7 @@ Public Class Slabs
     End Function
 
 
-    Public Function Slab_Tolidi_Update(ByVal slabId As Decimal, ByVal slabName As String, slabNameEng As String, ByVal Description As String)
+    Public Function Slab_Tolidi_Update(ByVal slabId As String, ByVal slabName As String, slabNameEng As String, ByVal Description As String)
         Try
             Dim connection As New Connection
             If connection.Connection.State <> ConnectionState.Open Then connection.Connection.Open()
@@ -364,7 +364,7 @@ Public Class Slabs
         Throw New NotImplementedException()
     End Function
 
-    Public Function Slab_Tolidi_Delete(ByVal slabId As Decimal)
+    Public Function Slab_Tolidi_Delete(ByVal slabId As String)
         Try
             Dim connection As New Connection
             If connection.Connection.State <> ConnectionState.Open Then connection.Connection.Open()
@@ -399,7 +399,7 @@ Public Class Slabs
         End Try
     End Function
 
-    Public Function Slab_kharidani_Insert(ByVal slabId As Decimal, ByVal slabName As String, ByVal SlabType As Integer,
+    Public Function Slab_kharidani_Insert(ByVal slabId As String, ByVal slabName As String, ByVal SlabType As Integer,
                                        slabNameEng As String, ByVal Description As String, ByVal FileName As String)
 
         Try
@@ -442,7 +442,7 @@ Public Class Slabs
     End Function
 
 
-    Public Function Slab_kharidani_Update(ByVal slabId As Decimal, ByVal slabName As String, slabNameEng As String, ByVal Description As String)
+    Public Function Slab_kharidani_Update(ByVal slabId As String, ByVal slabName As String, slabNameEng As String, ByVal Description As String)
         Try
             Dim connection As New Connection
             If connection.Connection.State <> ConnectionState.Open Then connection.Connection.Open()
@@ -481,7 +481,7 @@ Public Class Slabs
     End Function
 
 
-    Public Function Slab_kharidani_Delete(ByVal slabId As Decimal)
+    Public Function Slab_kharidani_Delete(ByVal slabId As String)
         Try
             Dim connection As New Connection
             If connection.Connection.State <> ConnectionState.Open Then connection.Connection.Open()
@@ -516,7 +516,7 @@ Public Class Slabs
         End Try
     End Function
 
-    Public Function Slab_Sefareshi_Insert(ByVal slabId As Decimal, ByVal slabName As String, ByVal SlabType As Integer,
+    Public Function Slab_Sefareshi_Insert(ByVal slabId As String, ByVal slabName As String, ByVal SlabType As Integer,
                                        slabNameEng As String, ByVal Description As String, ByVal FileName As String)
 
         Try
@@ -559,7 +559,7 @@ Public Class Slabs
     End Function
 
 
-    Public Function Slab_Sefareshi_Update(ByVal slabId As Decimal, ByVal slabName As String, slabNameEng As String, ByVal Description As String)
+    Public Function Slab_Sefareshi_Update(ByVal slabId As String, ByVal slabName As String, slabNameEng As String, ByVal Description As String)
         Try
             Dim connection As New Connection
             If connection.Connection.State <> ConnectionState.Open Then connection.Connection.Open()
@@ -598,7 +598,7 @@ Public Class Slabs
     End Function
 
 
-    Public Function Slab_Sefareshi_Delete(ByVal slabId As Decimal)
+    Public Function Slab_Sefareshi_Delete(ByVal slabId As String)
         Try
             Dim connection As New Connection
             If connection.Connection.State <> ConnectionState.Open Then connection.Connection.Open()
@@ -633,7 +633,7 @@ Public Class Slabs
         End Try
     End Function
 
-    Public Function Slab_Masrafi_Insert(ByVal slabId As Decimal, ByVal slabName As String, ByVal SlabType As Integer,
+    Public Function Slab_Masrafi_Insert(ByVal slabId As String, ByVal slabName As String, ByVal SlabType As Integer,
                                        slabNameEng As String, ByVal Description As String, ByVal FileName As String)
 
         Try
@@ -676,7 +676,7 @@ Public Class Slabs
     End Function
 
 
-    Public Function Slab_Masrafi_Update(ByVal slabId As Decimal, ByVal slabName As String, slabNameEng As String, ByVal Description As String)
+    Public Function Slab_Masrafi_Update(ByVal slabId As String, ByVal slabName As String, slabNameEng As String, ByVal Description As String)
         Try
             Dim connection As New Connection
             If connection.Connection.State <> ConnectionState.Open Then connection.Connection.Open()
@@ -715,7 +715,7 @@ Public Class Slabs
     End Function
 
 
-    Public Function Slab_Masrafi_Delete(ByVal slabId As Decimal)
+    Public Function Slab_Masrafi_Delete(ByVal slabId As String)
         Try
             Dim connection As New Connection
             If connection.Connection.State <> ConnectionState.Open Then connection.Connection.Open()
@@ -750,7 +750,7 @@ Public Class Slabs
         End Try
     End Function
 
-    Public Function Slab_Abzar_Insert(ByVal slabId As Decimal, ByVal slabName As String, ByVal SlabType As Integer,
+    Public Function Slab_Abzar_Insert(ByVal slabId As String, ByVal slabName As String, ByVal SlabType As Integer,
                                        slabNameEng As String, ByVal Description As String, ByVal FileName As String)
 
         Try
@@ -793,7 +793,7 @@ Public Class Slabs
     End Function
 
 
-    Public Function Slab_Abzar_Update(ByVal slabId As Decimal, ByVal slabName As String, slabNameEng As String, ByVal Description As String)
+    Public Function Slab_Abzar_Update(ByVal slabId As String, ByVal slabName As String, slabNameEng As String, ByVal Description As String)
         Try
             Dim connection As New Connection
             If connection.Connection.State <> ConnectionState.Open Then connection.Connection.Open()
@@ -832,7 +832,7 @@ Public Class Slabs
     End Function
 
 
-    Public Function Slab_Abzar_Delete(ByVal slabId As Decimal)
+    Public Function Slab_Abzar_Delete(ByVal slabId As String)
         Try
             Dim connection As New Connection
             If connection.Connection.State <> ConnectionState.Open Then connection.Connection.Open()
