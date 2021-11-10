@@ -63,6 +63,11 @@
 					<asp:BoundField DataField="SlabTypePer" HeaderText="نوع قطعه" />
 					<asp:BoundField DataField="CodeMohandesi" HeaderText="کد مهندسی" />
 					<asp:BoundField DataField="Description" HeaderText="توضیحات قطعه" />
+					<asp:TemplateField HeaderText="ابزار">
+						<ItemTemplate>
+							<asp:HyperLink ID="SlabFile_Hpr" runat="server" Visible='<%# Eval("FileVisible")%>' NavigateUrl='<%# Eval("FileName")%>'>فایل ضمیمه</asp:HyperLink>
+						</ItemTemplate>
+					</asp:TemplateField>
 					<%-- وضعیت قطعه --%>
 				</Columns>
 			</asp:GridView>

@@ -105,6 +105,13 @@
       <DependentUpon>SlabId_Check.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Components\Validations\IntValidation.ascx.designer.vb">
+      <DependentUpon>IntValidation.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Components\Validations\IntValidation.ascx.vb">
+      <DependentUpon>IntValidation.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Pages\Slabs\Slab_Archive.aspx.designer.vb">
       <DependentUpon>Slab_Archive.aspx</DependentUpon>
     </Compile>
@@ -160,6 +167,7 @@
     <Content Include="Components\File_Upload\File_Upload.ascx" />
     <Content Include="Components\Message\Message.ascx" />
     <Content Include="Components\SlabId_Check\SlabId_Check.ascx" />
+    <Content Include="Components\Validations\IntValidation.ascx" />
     <Content Include="favicon.ico" />
     <Content Include="font-fontawesome.html" />
     <Content Include="font-themify.html" />

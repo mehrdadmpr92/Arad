@@ -32,22 +32,22 @@ Partial Public Class Slab_Insert_Assembly
     Protected WithEvents MultiView1 As Global.System.Web.UI.WebControls.MultiView
 
     '''<summary>
-    '''AssemblySubmit control.
+    '''AssemblySubmit1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents AssemblySubmit As Global.System.Web.UI.WebControls.View
+    Protected WithEvents AssemblySubmit1 As Global.System.Web.UI.WebControls.View
 
     '''<summary>
-    '''SlabId_Txt control.
+    '''SlabIdCheck_Txt control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents SlabId_Txt As Global.Arad.SlabId_Check
+    Protected WithEvents SlabIdCheck_Txt As Global.Arad.SlabId_Check
 
     '''<summary>
     '''SlabName_Txt control.
@@ -95,83 +95,128 @@ Partial Public Class Slab_Insert_Assembly
     Protected WithEvents Submit_Btn As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
-    '''AssemblyArchive control.
+    '''AssemblySubmit2 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents AssemblyArchive As Global.System.Web.UI.WebControls.View
+    Protected WithEvents AssemblySubmit2 As Global.System.Web.UI.WebControls.View
 
     '''<summary>
-    '''DG_Archive control.
+    '''SlabId2_Lbl control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents DG_Archive As Global.System.Web.UI.WebControls.GridView
+    Protected WithEvents SlabId2_Lbl As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''Return_Btn control.
+    '''SlabName2_Lbl control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Return_Btn As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents SlabName2_Lbl As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''ViewEdit control.
+    '''PerSlabName2_Lbl control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ViewEdit As Global.System.Web.UI.WebControls.View
+    Protected WithEvents PerSlabName2_Lbl As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''SlabIdEdit_Txt control.
+    '''SlabFile2_LBtn control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents SlabIdEdit_Txt As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents SlabFile2_LBtn As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
-    '''SlabNameEdit_Txt control.
+    '''rowNumber control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents SlabNameEdit_Txt As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents rowNumber As Global.Arad.IntValidation
 
     '''<summary>
-    '''PerSlabNameEdit_Txt control.
+    '''UP1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents PerSlabNameEdit_Txt As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents UP1 As Global.System.Web.UI.UpdatePanel
 
     '''<summary>
-    '''SlabDescEdit_Txt control.
+    '''Check_SlabId control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents SlabDescEdit_Txt As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents Check_SlabId As Global.Arad.SlabId_Check
 
     '''<summary>
-    '''Edit_Btn control.
+    '''tedad_Txt control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Edit_Btn As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents tedad_Txt As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''RFV1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents RFV1 As Global.System.Web.UI.WebControls.RequiredFieldValidator
+
+    '''<summary>
+    '''addToList control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents addToList As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''slabsList_GV control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents slabsList_GV As Global.System.Web.UI.WebControls.GridView
+
+    '''<summary>
+    '''Eslah_Btn control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Eslah_Btn As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''AssemblySubmit_Btn control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents AssemblySubmit_Btn As Global.System.Web.UI.WebControls.Button
 End Class
