@@ -1,19 +1,21 @@
-﻿<%@ Control Language="vb" AutoEventWireup="false" CodeBehind="IntValidation.ascx.vb" Inherits="Arad.IntValidation" %>
-<script type="text/javascript">
+﻿<%@ Control Language="VB" AutoEventWireup="false" CodeBehind="IntValidation.ascx.vb" Inherits="Arad.IntValidation" %>
+<script type="text/javascript" language="javascript">
     function keyDownNumber(obj) {
+
         var key;
         if (navigator.appName == 'Microsoft Internet Explorer')
             key = event.keyCode;
         else
-            key.event.which
+            key = event.which
 
         if (!(key >= 48 && key <= 57) && key != 8 && key != 46 && key != 36 && key != 37) {
             event.returnValue = false;
         }
+
     }
 </script>
 
-<script type="text/javascript">
+<script type="text/javascript" language="javascript">
     function onlyDotsAndNumbers(event) {
         var charCode = (event.which) ? event.which : event.keyCode
         if (charCode == 46) {
@@ -40,4 +42,5 @@
 </script>
 
 <asp:TextBox ID="TextBox1" runat="server" onkeypress="return onlyNumbers(event)"></asp:TextBox>
-<asp:RequiredFieldValidator ID="RequiredFieldValidator" runat="server" ControlToValidate="TextBox1" ErrorMessage="این فیلد اجباری می باشد"></asp:RequiredFieldValidator>
+<asp:RequiredFieldValidator ID="RequiredFieldValidator" runat="server" ControlToValidate="TextBox1" ErrorMessage="این فیلد اجباری می باشد">
+</asp:RequiredFieldValidator>

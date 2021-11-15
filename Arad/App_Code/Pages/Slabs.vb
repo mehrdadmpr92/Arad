@@ -235,11 +235,11 @@ Public Class Slabs
                         slabsTotal += "union all"
                     End If
                     slabsTotal += " Select '" + slabId + "'as Assembly_SlabId ," + tbl.Rows(x).Item("تعداد").ToString() +
-                            "as SubSlabTedad,'" + tbl.Rows(x).Item("شماره قطعه").ToString() + "'as SubSlabId" + vbCrLf
-                    slabsTotal += "union all"
+                            " as SubSlabTedad,'" + tbl.Rows(x).Item("شماره قطعه").ToString() + "' as SubSlabId" + vbCrLf
+                    slabsTotal += "union all  " + vbCrLf
 
                     slabsTotal += "select '" + slabId + "' as Assembly_SlabId , ( " +
-                        tbl.Rows(x).Item("تعداد").ToString() + "* SubSlabTedad) as SubSlabTedad,SubSlabId " + vbCrLf
+                        tbl.Rows(x).Item("تعداد").ToString() + "* SubSlabTedad) as SubSlabTedad,SubSlabId "
 
                     slabsTotal += "From SlabSubTotal" + vbCrLf
                     slabsTotal += " Where Assembly_SlabId='" + tbl.Rows(x).Item("شماره قطعه").ToString() + "'" + vbCrLf
@@ -257,11 +257,11 @@ Public Class Slabs
 
 
 
-            Dim str As String = "begin tran T1" + vbCrLf
+            Dim str As String = " begin tran t1 " + vbCrLf
 
-            str += slabsTotal + vbCrLf + vbCrLf + +vbCrLf + vbCrLf
-            str += "update [Slabs] set SlabMaxVersion='N' where slabId=@slabId" + +vbCrLf + vbCrLf
-            str += "insert into [Slabs] (SlabMaxVersion , slabId , Version , SlabType ,slabNameEng , slabName , FileName , Description ,  
+            str += slabsTotal + vbCrLf + vbCrLf + vbCrLf + vbCrLf
+            str += " update [Slabs] set SlabMaxVersion='N' where slabId=@slabId " + vbCrLf + vbCrLf
+            str += " insert into [Slabs] (SlabMaxVersion , slabId , Version , SlabType ,slabNameEng , slabName , FileName , Description ,  
                     SubmitPersianDate ,Sub_Slabs)" + vbCrLf +
                     "Values('Y' , @slabId , @version , @slabType , @slabNameEng , @slabName , @fileName , @description , @submitPersianDate,@Sub_Slabs)" + vbCrLf
 
@@ -279,14 +279,14 @@ Public Class Slabs
             Next
 
 
-            str += "if @@Error<>0 begin set @out=1; rollback tran T1 ; end else begin set @out=0; commit T1 end" + vbCrLf
+            str += "if (@@Error <> 0) begin rollback tran t1 set @output=1 end else begin commit tran t1 set @output=0   end" + vbCrLf
 
 
 
             connection.Adapter.SelectCommand.CommandText = str
             connection.Adapter.SelectCommand.CommandType = CommandType.Text
 
-            Dim sqlparams(10) As SqlParameter
+            Dim sqlparams(9) As SqlParameter
             sqlparams(0) = New SqlParameter("@slabId", slabId)
             sqlparams(1) = New SqlParameter("@version", version)
             sqlparams(2) = New SqlParameter("@slabType", slabType)
@@ -307,7 +307,7 @@ Public Class Slabs
                 i += 1
             Next
             connection.Adapter.SelectCommand.ExecuteNonQuery()
-            Return sqlparams(9).Value.ToString
+            Return sqlparams(8).Value.ToString
             If connection.Connection.State <> ConnectionState.Closed Then connection.Connection.Close()
 
         Catch ex As Exception
@@ -343,6 +343,7 @@ Public Class Slabs
             sqlparams(4).DbType = Data.DbType.Decimal
 
 
+            Dim i As Integer = 0
             For Each Param In sqlparams
                 connection.Adapter.SelectCommand.Parameters.Add(sqlparams(i))
                 i += 1

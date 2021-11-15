@@ -4,6 +4,7 @@
 <%@ Register Src="~/Components/File_Upload/File_Upload.ascx" TagPrefix="uc1" TagName="File_Upload" %>
 <%@ Register Src="~/Components/SlabId_Check/SlabId_Check.ascx" TagPrefix="uc2" TagName="SlabId_Check" %>
 <%@ Register Src="~/Components/Validations/IntValidation.ascx" TagPrefix="uc1" TagName="IntValidation" %>
+<%@ Register Src="~/Components/SlabId_Check/CheckSlabCode.ascx" TagPrefix="uc1" TagName="CheckSlabCode" %>
 
 
 
@@ -16,7 +17,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <%--Test--%>
-
+   
     <style>
         .info p {
             text-align: center;
@@ -133,7 +134,7 @@
                 display: block;
             }
     </style>
-
+    <asp:ScriptManager ID="ScriptManager" runat="server"></asp:ScriptManager>
     <uc1:Message runat="server" ID="Message" />
     <asp:MultiView runat="server" ID="MultiView1">
         <asp:View runat="server" ID="AssemblySubmit1">
@@ -259,7 +260,7 @@
                                 <td>
                                     <asp:UpdatePanel ID="UP1" runat="server">
                                         <ContentTemplate>
-                                            <uc2:SlabId_Check runat="server" ID="Check_SlabId" />
+                                            <uc1:CheckSlabCode runat="server" id="Check_SlabId" />
                                         </ContentTemplate>
                                     </asp:UpdatePanel>
                                 </td>
@@ -280,7 +281,7 @@
                             <tr>
                                 <td style="vertical-align: central; width: 140px; text-align: center;"></td>
                                 <td>
-                                    <asp:Button CssClass="btn btn-light mb-1" runat="server" ID="addToList" Text="افزودن به لیست" OnClick="addToList_Click" />
+                                    <asp:Button CssClass="btn btn-light mb-1" runat="server" ID="addToList" Text="افزودن به لیست" OnClick="addToList_Click"/>
                                     <br />
                                     <asp:GridView ID="slabsList_GV" runat="server" SkinID="GV_Skin">
                                         <Columns>
@@ -290,10 +291,10 @@
                                                         OnClick="Delete_LBtn_Click">حذف</asp:LinkButton>
                                                     <br />
                                                     <asp:LinkButton ID="Edit_LBtn" runat="server" CommandArgument='<%#Eval("شماره قطعه") %>' Font-Underline="false"
-                                                        OnClick="Edit_LBtn_Click">ویرایش</asp:LinkButton>
+                                                        OnClick="Edit_LBtn_Click" ValidationGroup="s1">ویرایش</asp:LinkButton>
                                                     <br />
                                                     <asp:LinkButton ID="Update_LBtn" runat="server" CommandArgument='<%#Eval("شماره قطعه") %>' Font-Underline="false"
-                                                        OnClick="Update_LBtn_Click">بروزرسانی</asp:LinkButton>
+                                                        OnClick="Update_LBtn_Click" ValidationGroup="s2">بروزرسانی</asp:LinkButton>
                                                 </ItemTemplate>
                                             </asp:TemplateField>
 
@@ -322,7 +323,7 @@
                                                     <asp:TextBox ID="Tedad_Txt" runat="server" Text='<%# eval("تعداد") %>'></asp:TextBox>
                                                 </EditItemTemplate>
 
-                                                <ItemTemplate runat="server" Text='<%# eval("تعداد ") %>'>
+                                                <ItemTemplate>
                                                     <asp:Label ID="Tedad_Lbl" runat="server" Text='<%# eval("تعداد") %>'></asp:Label>
                                                 </ItemTemplate>
                                             </asp:TemplateField>
@@ -337,8 +338,8 @@
                 <tr>
                     <td style="width: 250px; text-align: center;"></td>
                     <td style="height: 110px">
-                        <asp:Button CssClass="btn btn-light" runat="server" ID="Eslah_Btn" Text="اصلاح"></asp:Button>
-                        <asp:Button CssClass="btn btn-success" runat="server" ID="AssemblySubmit_Btn" Text="ثبت نهایی" OnClick="AssemblySubmit_Btn_Click" />
+                        <asp:Button CssClass="btn btn-light" runat="server" ID="Eslah_Btn" Text="بازگشت" OnClick="Eslah_Btn_Click" ValidationGroup="s3"></asp:Button>
+                        <asp:Button CssClass="btn btn-success" runat="server" ID="AssemblySubmit_Btn" Text="ثبت نهایی" OnClick="AssemblySubmit_Btn_Click"  ValidationGroup="s4" />
                     </td>
                 </tr>
             </table>

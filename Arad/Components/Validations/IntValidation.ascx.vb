@@ -1,9 +1,7 @@
 ﻿Public Class IntValidation
     Inherits System.Web.UI.UserControl
 
-    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
-    End Sub
     Public Property text() As String
         Get
             Return Me.TextBox1.Text
@@ -53,12 +51,5 @@
 
 
 
-    Public Property ReadOnly_() As String
-        Get
-            Return TextBox1.ReadOnly
-        End Get
-        Set(ByVal value As Boolean)
-            TextBox1.ReadOnly = value
-        End Set
-    End Property
+
 End Class

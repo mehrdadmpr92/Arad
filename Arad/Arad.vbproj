@@ -98,6 +98,13 @@
   <ItemGroup>
     <Compile Include="App_Code\General\DateSelector.vb" />
     <Compile Include="App_Code\General\General.vb" />
+    <Compile Include="Components\SlabId_Check\CheckSlabCode.ascx.designer.vb">
+      <DependentUpon>CheckSlabCode.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Components\SlabId_Check\CheckSlabCode.ascx.vb">
+      <DependentUpon>CheckSlabCode.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Components\SlabId_Check\SlabId_Check.ascx.designer.vb">
       <DependentUpon>SlabId_Check.ascx</DependentUpon>
     </Compile>
@@ -166,6 +173,7 @@
     <Content Include="charts-peity.html" />
     <Content Include="Components\File_Upload\File_Upload.ascx" />
     <Content Include="Components\Message\Message.ascx" />
+    <Content Include="Components\SlabId_Check\CheckSlabCode.ascx" />
     <Content Include="Components\SlabId_Check\SlabId_Check.ascx" />
     <Content Include="Components\Validations\IntValidation.ascx" />
     <Content Include="favicon.ico" />

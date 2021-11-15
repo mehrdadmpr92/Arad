@@ -4,17 +4,16 @@ Public Class Slab_Insert_Assembly
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        Try
-            Page.Title = "ثبت قطعه اسمبلی"
+
+
+        Page.Title = "ثبت قطعه اسمبلی"
+        If Page.IsPostBack = False Then
             Me.MultiView1.SetActiveView(AssemblySubmit1)
 
 
             Me.ViewState("tableA") = createTableSlabSubs()
             Me.ViewState("tableA").clone()
-
-
-        Catch ex As Exception
-        End Try
+        End If
 
     End Sub
 
@@ -94,6 +93,13 @@ Public Class Slab_Insert_Assembly
                 Exit Sub
             End If
 
+
+
+
+
+            Me.SlabId2_Lbl.Text = SlabIdCheck_Txt.Text
+            Me.SlabName2_Lbl.Text = SlabName_Txt.Text
+            Me.PerSlabName2_Lbl.Text = PerSlabName_Txt.Text
             Me.MultiView1.SetActiveView(AssemblySubmit2)
 
 
@@ -144,15 +150,15 @@ Public Class Slab_Insert_Assembly
     End Sub
 
     Protected Sub Edit_LBtn_Click(sender As Object, e As EventArgs)
-        Try
-            Dim Lbtn As New LinkButton
+
+        Dim Lbtn As New LinkButton
             Lbtn = sender
             Dim i As Integer
 
             For i = 0 To CType(ViewState("tableA"), Data.DataTable).Rows.Count - 1
                 If CType(ViewState("tableA"), Data.DataTable).Rows(i).Item("شماره قطعه").ToString = Lbtn.CommandArgument Then
-                    slabsList_GV.EditIndex = -1
-                    slabsList_GV.DataSource = CType(ViewState("tableA"), Data.DataTable)
+                slabsList_GV.EditIndex = i
+                slabsList_GV.DataSource = CType(ViewState("tableA"), Data.DataTable)
                     slabsList_GV.DataBind()
 
                     DirectCast(slabsList_GV.Rows(i).FindControl("Delete_LBtn"), LinkButton).Visible = False
@@ -163,9 +169,6 @@ Public Class Slab_Insert_Assembly
                 End If
             Next
 
-        Catch ex As Exception
-
-        End Try
     End Sub
 
     Protected Sub Update_LBtn_Click(sender As Object, e As EventArgs)
@@ -229,7 +232,7 @@ Public Class Slab_Insert_Assembly
 
     End Sub
 
-    Protected Sub addToList_Click(sender As Object, e As EventArgs)
+    Protected Sub addToList_Click(sender As Object, e As EventArgs) Handles addToList.Click
         Try
             Dim tbl As New Data.DataTable
             Dim slab As New Slabs
@@ -254,6 +257,7 @@ Public Class Slab_Insert_Assembly
 
                 ElseIf CType(ViewState("tableA"), Data.DataTable).Rows(i).Item("ردیف").ToString = rowNumber.text Then
                     Me.Message.ErrMessages(Arad.Message.MessageType.Err) = "ردیف وارد شده قبلا به لیست اضافه گردیده است."
+                    Exit Sub
                 End If
             Next
 
@@ -324,6 +328,15 @@ Public Class Slab_Insert_Assembly
         End If
 
 
+    End Sub
+
+
+    Protected Sub SlabFile2_LBtn_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles SlabFile2_LBtn.Click
+        Response.Write(Me.ViewState("SlabFile"))
+    End Sub
+
+    Protected Sub Eslah_Btn_Click(sender As Object, e As EventArgs)
+        Me.MultiView1.SetActiveView(AssemblySubmit1)
     End Sub
 End Class
 

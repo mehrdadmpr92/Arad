@@ -14,6 +14,15 @@ Option Explicit On
 Partial Public Class Slab_Insert_Assembly
 
     '''<summary>
+    '''ScriptManager control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ScriptManager As Global.System.Web.UI.ScriptManager
+
+    '''<summary>
     '''Message control.
     '''</summary>
     '''<remarks>
@@ -164,7 +173,7 @@ Partial Public Class Slab_Insert_Assembly
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Check_SlabId As Global.Arad.SlabId_Check
+    Protected WithEvents Check_SlabId As Global.Arad.CheckSlabCode
 
     '''<summary>
     '''tedad_Txt control.
