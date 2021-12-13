@@ -56,10 +56,10 @@ Public Class Slab_Insert_Assembly
                 Exit Sub
             End If
 
-            If (SlabIdCheck_Txt.Text.Length <> 10) Then
-                Me.Message.ErrMessages(Arad.Message.MessageType.Err) = "شماره قطعه بایستی ده رقمی باشد."
-                Exit Sub
-            End If
+            'If (SlabIdCheck_Txt.Text.Length <> 10) Then
+            '    Me.Message.ErrMessages(Arad.Message.MessageType.Err) = "شماره قطعه بایستی ده رقمی باشد."
+            '    Exit Sub
+            'End If
 
 
             tbl = slab.SlabSelect_BySlabId(SlabIdCheck_Txt.Text)
@@ -74,10 +74,22 @@ Public Class Slab_Insert_Assembly
             '    Exit Sub
             'End If
 
+
+
+
             If SlabFile.fileselect Then
 
+                Me.ViewState("SlabFile") = "..\..\..\Uploads\Slabs\" + SlabFile.filename + "300" + SlabFile.filetype
 
-                Me.ViewState("SlabFile") = "..\..\..\Uploads\Slabs\" & Date.Now.Hour.ToString & Date.Now.Minute.ToString + "_" + SlabFile.filename + SlabFile.filetype
+
+                SlabFile.File.PostedFile.SaveAs(Server.MapPath(".\Temp\") + "..\..\..\Uploads\Slabs\" &
+                                               SlabFile.filename +
+                                               "300" +
+                                               SlabFile.filetype
+                                               )
+
+                Me.ViewState("filename") = SlabFile.filename
+                Me.ViewState("filetype") = SlabFile.filetype
 
             Else
                 Me.ViewState("SlabFile") = "0"
@@ -316,6 +328,9 @@ Public Class Slab_Insert_Assembly
             Me.ViewState("tableA") = Nothing
             Me.ViewState("tableA") = createTableSlabSubs()
             Me.ViewState("tableA").clone()
+            Me.ViewState("filename") = ""
+            Me.ViewState("filetype") = ""
+
 
             Me.slabsList_GV.DataSource = CType(Me.ViewState("tableA"), Data.DataTable)
             Me.slabsList_GV.DataBind()
@@ -332,8 +347,11 @@ Public Class Slab_Insert_Assembly
 
 
     Protected Sub SlabFile2_LBtn_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles SlabFile2_LBtn.Click
-        Response.Write(Me.ViewState("SlabFile"))
+
+        Response.Write("<script type='text/javascript'>window.open('" + "../../Uploads/Slabs/" & Me.ViewState("filename") + "300" & Me.ViewState("filetype") + "');</script>")
+
     End Sub
+    Public Property url
 
     Protected Sub Eslah_Btn_Click(sender As Object, e As EventArgs)
         Me.MultiView1.SetActiveView(AssemblySubmit1)

@@ -226,7 +226,7 @@
                 <tr>
                     <td style="width: 250px; text-align: center;"></td>
                     <td>
-                        <asp:LinkButton ID="SlabFile2_LBtn" runat="server" Visible="true">فایل ضمیمه</asp:LinkButton>
+                        <asp:LinkButton ID="SlabFile2_LBtn" runat="server" Visible="true" ValidationGroup="s5">فایل ضمیمه</asp:LinkButton>
                     </td>
                 </tr>
 

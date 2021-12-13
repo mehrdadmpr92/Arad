@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class Slab_Insert_Sefareshi
+Partial Public Class Slab_Insert_Masrafi
 
     '''<summary>
     '''Message control.
@@ -32,13 +32,13 @@ Partial Public Class Slab_Insert_Sefareshi
     Protected WithEvents MultiView1 As Global.System.Web.UI.WebControls.MultiView
 
     '''<summary>
-    '''SefareshiSubmit control.
+    '''MasrafiSubmit control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents SefareshiSubmit As Global.System.Web.UI.WebControls.View
+    Protected WithEvents MasrafiSubmit As Global.System.Web.UI.WebControls.View
 
     '''<summary>
     '''SlabIdCheck_Txt control.

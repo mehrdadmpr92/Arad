@@ -35,6 +35,11 @@ Public Class File_Upload
             Return files.FileFieldType(File1)
         End Get
     End Property
+    Public ReadOnly Property Url() As String
+        Get
+            Return "<script type='text/javascript'>window.open('" + "../../../Uploads/Slabs/" & Me.ViewState("filename") & Me.ViewState("filetype") + "');</script>"
+        End Get
+    End Property
     Public Property RequiredFieldValidatorValidationGroup() As String
         Get
             Return RequiredFieldValidator1.ValidationGroup
@@ -107,13 +112,19 @@ Public Class File_Upload
     End Sub
 
     Protected Sub Lbtn_Upload_Movaggat_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles Lbtn_Upload_Movaggat.Click
-        Dim names As String = Server.MapPath(".\Temp\") + "..\..\..\Uploads\" & Date.Now.Date.ToString + "_" + filename + ".pdf"
-        If fileselect Then
-            File1.PostedFile.SaveAs(names)
-            System.IO.File.Open(names, FileMode.Open, FileAccess.Read)
-        End If
+        'Dim names As String = Server.MapPath(".\Temp\") + "..\..\..\Uploads\Slabs" + filename + ".pdf"
+        'If fileselect Then
+        '    File1.PostedFile.SaveAs(names)
+        '    System.IO.File.Open(names, FileMode.Open, FileAccess.Read)
+        'End If
 
-        Response.Redirect("..\..\..\Uploads\" & Date.Now.Date.ToString + "_" + filename + ".pdf")
+        'Response.Redirect("..\..\Uploads\Slabs" + filename + ".pdf")
+
+        Me.ViewState("filename") = filename
+
+
+
+
     End Sub
 
 End Class

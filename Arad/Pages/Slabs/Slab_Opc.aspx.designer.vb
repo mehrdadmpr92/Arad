@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class Slab_Insert_Kharidani
+Partial Public Class Slab_Opc
 
     '''<summary>
     '''Message control.
@@ -32,119 +32,155 @@ Partial Public Class Slab_Insert_Kharidani
     Protected WithEvents MultiView1 As Global.System.Web.UI.WebControls.MultiView
 
     '''<summary>
-    '''kharidaniSubmit control.
+    '''OpcSubmit_check control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents kharidaniSubmit As Global.System.Web.UI.WebControls.View
+    Protected WithEvents OpcSubmit_check As Global.System.Web.UI.WebControls.View
 
     '''<summary>
-    '''SlabIdCheck_Txt control.
+    '''SlabId_Txt control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents SlabIdCheck_Txt As Global.Arad.SlabId_Check
+    Protected WithEvents SlabId_Txt As Global.Arad.CheckSlabCode
 
     '''<summary>
-    '''SlabName_Txt control.
+    '''Continue_Btn control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents SlabName_Txt As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents Continue_Btn As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
-    '''PerSlabName_Txt control.
+    '''OpcSubmit control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents PerSlabName_Txt As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents OpcSubmit As Global.System.Web.UI.WebControls.View
 
     '''<summary>
-    '''SlabFile control.
+    '''OPCRow control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents SlabFile As Global.Arad.File_Upload
+    Protected WithEvents OPCRow As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''SlabDesc_Txt control.
+    '''OperationTitle_DD control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents SlabDesc_Txt As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents OperationTitle_DD As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''Submit_Btn control.
+    '''OpcDesc_Txt control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Submit_Btn As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents OpcDesc_Txt As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''ViewEdit control.
+    '''Tools_Txt control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ViewEdit As Global.System.Web.UI.WebControls.View
+    Protected WithEvents Tools_Txt As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''SlabIdEdit_Txt control.
+    '''Fixcher control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents SlabIdEdit_Txt As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents Fixcher As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''SlabNameEdit_Txt control.
+    '''Fixcher_Validation_Lbl control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents SlabNameEdit_Txt As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents Fixcher_Validation_Lbl As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''PerSlabNameEdit_Txt control.
+    '''TarefehWorker_Txt control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents PerSlabNameEdit_Txt As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents TarefehWorker_Txt As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''SlabDescEdit_Txt control.
+    '''NumWorker_Txt control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents SlabDescEdit_Txt As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents NumWorker_Txt As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''Edit_Btn control.
+    '''TanzimTime_Txt control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Edit_Btn As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents TanzimTime_Txt As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''SlabTime_Txt control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents SlabTime_Txt As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''addToList control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents addToList As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''OPCList_GV control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents OPCList_GV As Global.System.Web.UI.WebControls.GridView
+
+    '''<summary>
+    '''OPCSubmit_Btn control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents OPCSubmit_Btn As Global.System.Web.UI.WebControls.Button
 End Class

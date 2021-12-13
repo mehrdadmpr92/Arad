@@ -140,6 +140,13 @@
       <DependentUpon>Slab_Insert_Kharidani.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="Pages\Slabs\Slab_Insert_Masrafi.aspx.designer.vb">
+      <DependentUpon>Slab_Insert_Masrafi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Slabs\Slab_Insert_Masrafi.aspx.vb">
+      <DependentUpon>Slab_Insert_Masrafi.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="Pages\Slabs\Slab_Insert_Sefareshi.aspx.designer.vb">
       <DependentUpon>Slab_Insert_Sefareshi.aspx</DependentUpon>
     </Compile>
@@ -152,6 +159,14 @@
     </Compile>
     <Compile Include="Pages\Slabs\Slab_Insert_Tolidi.aspx.vb">
       <DependentUpon>Slab_Insert_Tolidi.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="App_Code\Pages\OPC.vb" />
+    <Compile Include="Pages\Slabs\Slab_Opc.aspx.designer.vb">
+      <DependentUpon>Slab_Opc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Slabs\Slab_Opc.aspx.vb">
+      <DependentUpon>Slab_Opc.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Content Include="App_Themes\Admin\SkinStyleSheet.css" />
@@ -213,8 +228,10 @@
     <Content Include="Pages\Slabs\Slab_Insert_Abzar.aspx" />
     <Content Include="Pages\Slabs\Slab_Insert_Assembly.aspx" />
     <Content Include="Pages\Slabs\Slab_Insert_Kharidani.aspx" />
+    <Content Include="Pages\Slabs\Slab_Insert_Masrafi.aspx" />
     <Content Include="Pages\Slabs\Slab_Insert_Sefareshi.aspx" />
     <Content Include="Pages\Slabs\Slab_Insert_Tolidi.aspx" />
+    <Content Include="Pages\Slabs\Slab_Opc.aspx" />
     <Content Include="tables-basic.html" />
     <Content Include="tables-data.html" />
     <Content Include="ui-alerts.html" />

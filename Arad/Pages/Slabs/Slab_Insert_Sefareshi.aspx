@@ -1,6 +1,9 @@
 ﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Pages/MasterPage/MasterPage.Master" CodeBehind="Slab_Insert_Sefareshi.aspx.vb" Inherits="Arad.Slab_Insert_Sefareshi" %>
 <%@ Register Src="~/Components/Message/Message.ascx" TagPrefix="uc1" TagName="Message" %>
 <%@ Register Src="~/Components/File_Upload/File_Upload.ascx" TagPrefix="uc1" TagName="File_Upload" %>
+<%@ Register Src="~/Components/SlabId_Check/SlabId_Check.ascx" TagPrefix="uc1" TagName="SlabId_Check" %>
+
+
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -130,19 +133,18 @@
         <asp:View runat="server" ID="SefareshiSubmit">
             <div>
 
-                <h2>ثبت قطعه تولیدی</h2>
+                <h2>ثبت قطعه سفارشی</h2>
             </div>
             <hr />
             
             <div class="contentform col-md-7 col-7 float-none m-auto ">
-                <div id="sendmessage2">Your message has been sent successfully. Thank you. </div>
-
+                <div id="sendmessage">Your message has been sent successfully. Thank you. </div>
 
                 <div>
                     <div class="form-group">
                         <label>شماره قطعه : </label>
                         <span class="icon-case"><i class="fa fa-cogs"></i></span>
-                        <asp:TextBox runat="server" TextMode="Number" name="nom" ID="SlabId_Txt" data-rule="required" />
+                        <uc1:SlabId_Check runat="server" ID="SlabIdCheck_Txt" MaxLength="10" />
                         <div class="validation"></div>
                     </div>
 
@@ -163,7 +165,6 @@
                     <div class="form-group">
                         <label>فایل پیوستی :</label>
                         <span class="icon-case"><i class="fa fa-file-pdf-o"></i></span>
-                     <%--   <asp:FileUpload runat="server" ID="SlabFile_File" Style="padding-top: 5px" />--%>
                         <uc1:File_Upload runat="server" id="SlabFile" />
                         <div class="validation"></div>
                     </div>
@@ -181,55 +182,6 @@
             </div>
         </asp:View>
 
-
-        <asp:View runat="server" ID="ViewEdit">
-            <div>
-                <h2>ویرایش قطعات</h2>
-            </div>
-            <hr />
-            <div class="contentform col-md-7 col-7 float-none m-auto ">
-                <div id="sendmessage">Your message has been sent successfully. Thank you. </div>
-
-
-                <div>
-                    <div class="form-group">
-                        <label>شماره قطعه : </label>
-                        <span class="icon-case"><i class="fa fa-cogs"></i></span>
-                        <asp:Label runat="server" Enabled="false" CssClass="SlabIdLabel" name="nom" ID="SlabIdEdit_Txt" data-rule="required"></asp:Label>
-                        <div class="validation"></div>
-                       
-                    </div>
-
-                    <div class="form-group">
-                        <label>نام قطعه:</label>
-                        <span class="icon-case"><i class="fa fa-etsy"></i></span>
-                        <asp:TextBox runat="server" ID="SlabNameEdit_Txt" name="prenom" data-rule="required" />
-                        <div class="validation"></div>
-                    </div>
-
-                    <div class="form-group">
-                        <label>نام فارسی قطعه :</label>
-                        <span class="icon-case"><i class="fa fa-font"></i></span>
-                        <asp:TextBox runat="server" required="required" type="text" name="ville" ID="PerSlabNameEdit_Txt" data-rule="required" />
-                        <div class="validation"></div>
-                    </div>
-
-
-                    <div class="form-group">
-                        <label>توضیحات :</label>
-                        <span class="icon-case"><i class="fa fa-commenting"></i></span>
-                        <asp:TextBox runat="server" name="Description" ID="SlabDescEdit_Txt" data-rule="maxlen:10" />
-                        <div class="validation"></div>
-                    </div>
-                </div>
-            </div>
-
-         
-            <div class="col-md-12 col-12">
-                <asp:Button runat="server" ID="Edit_Btn" CssClass="bouton-contact" Text="ذخیره " OnClick="Edit_Btn_Click" />
-            </div>
-            
-        </asp:View>
     </asp:MultiView>
 </asp:Content>
 

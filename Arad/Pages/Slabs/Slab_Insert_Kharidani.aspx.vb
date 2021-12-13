@@ -16,19 +16,40 @@
     Protected Sub Submit_Btn_Click(sender As Object, e As EventArgs)
         Try
             Dim slab As New Slabs
+            Dim tbl As New Data.DataTable
+            'Dim dateSelector As New DateSelector
 
+            If SlabFile.fileLength = 0 Then
+                Me.Message.ErrMessages(Arad.Message.MessageType.Warning) = "وارد کردن فایل پیوستی الزامی می باشد."
+                Exit Sub
+            End If
+
+
+            If (SlabFile.filename.ToString <> SlabIdCheck_Txt.Text) Then
+                Me.Message.ErrMessages(Arad.Message.MessageType.Err) = "نام فایل بایستی با شماره قطعه یکی باشد."
+                Exit Sub
+            End If
+
+            If (SlabIdCheck_Txt.Text.Length <> 10) Then
+                Me.Message.ErrMessages(Arad.Message.MessageType.Err) = "شماره قطعه بایستی ده رقمی باشد."
+                Exit Sub
+            End If
+
+            If (SlabIdCheck_Txt.Text.Length <> 10) Then
+                Me.Message.ErrMessages(Arad.Message.MessageType.Err) = "شماره قطعه بایستی ده رقمی باشد."
+                Exit Sub
+            End If
+
+
+            tbl = slab.SlabSelect_BySlabId(SlabIdCheck_Txt.Text)
+            If (tbl.Rows.Count > 0) Then
+                Me.Message.ErrMessages(Arad.Message.MessageType.Err) = "شماره قطعه وارده در سیستم موجود می باشد."
+                Exit Sub
+            End If
 
             If SlabFile.fileselect Then
-                SlabFile.File.PostedFile.SaveAs(Server.MapPath(".\Temp\") + "..\..\..\Uploads\Slabs\" &
-                                                Date.Now.Hour.ToString &
-                                                Date.Now.Minute.ToString +
-                                                "_" +
-                                                SlabFile.filename +
-                                                SlabFile.filetype
-                                                )
 
-                Me.ViewState("SlabFile") = "..\..\..\Uploads\Slabs\" & Date.Now.Hour.ToString & Date.Now.Minute.ToString + "_" + SlabFile.filename + SlabFile.filetype
-
+                Me.ViewState("SlabFile") = "..\..\..\Uploads\Slabs\" + SlabFile.filename + "200" + SlabFile.filetype
             Else
                 Me.ViewState("SlabFile") = "0"
             End If
@@ -37,11 +58,15 @@
 
             Dim slabType As String = 2
 
-            Dim err As String = slab.Slab_kharidani_Insert(SlabId_Txt.Text, PerSlabName_Txt.Text, slabType,
+            Dim err As String = slab.Slab_kharidani_Insert(SlabIdCheck_Txt.Text, PerSlabName_Txt.Text, slabType,
                                                         SlabName_Txt.Text, SlabDesc_Txt.Text, Me.ViewState("SlabFile"))
 
             If err = 0 Then
-                SlabId_Txt.Text = ""
+                SlabFile.File.PostedFile.SaveAs(Server.MapPath(".\Temp\") + "..\..\..\Uploads\Slabs\" + SlabFile.filename + "200" + SlabFile.filetype)
+
+
+                SlabIdCheck_Txt.restore()
+                SlabIdCheck_Txt.Text = ""
                 PerSlabName_Txt.Text = ""
                 SlabName_Txt.Text = ""
                 SlabDesc_Txt.Text = ""

@@ -81,7 +81,7 @@
             If SlabFile.fileselect Then
 
 
-                Me.ViewState("SlabFile") = "..\..\..\Uploads\Slabs\" & Date.Now.Hour.ToString & Date.Now.Minute.ToString + "_" + SlabFile.filename + SlabFile.filetype
+                Me.ViewState("SlabFile") = "..\..\..\Uploads\Slabs\" + SlabFile.filename + "100" + SlabFile.filetype
 
             Else
                 Me.ViewState("SlabFile") = "0"
@@ -103,11 +103,7 @@
 
 
             If err = 0 Then
-                SlabFile.File.PostedFile.SaveAs(Server.MapPath(".\Temp\") + "..\..\..\Uploads\Slabs\" &
-                                                Date.Now.Hour.ToString &
-                                                Date.Now.Minute.ToString +
-                                                "_" +
-                                                SlabFile.filename +
+                SlabFile.File.PostedFile.SaveAs(Server.MapPath(".\Temp\") + "..\..\..\Uploads\Slabs\" + SlabFile.filename + "100" +
                                                 SlabFile.filetype
                                                 )
 

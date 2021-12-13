@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Pages/MasterPage/MasterPage.Master" CodeBehind="Slab_Insert_Abzar.aspx.vb" Inherits="Arad.Slab_Insert_Abzar" %>
+﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Pages/MasterPage/MasterPage.Master" CodeBehind="Slab_Insert_Masrafi.aspx.vb" Inherits="Arad.Slab_Insert_Masrafi" %>
 
 <%@ Register Src="~/Components/Message/Message.ascx" TagPrefix="uc1" TagName="Message" %>
 <%@ Register Src="~/Components/File_Upload/File_Upload.ascx" TagPrefix="uc1" TagName="File_Upload" %>
@@ -10,7 +10,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
 
     <style>
     	.info p {
@@ -157,10 +156,10 @@
 
     <uc1:Message runat="server" ID="Message" />
     <asp:MultiView runat="server" ID="MultiView1">
-        <asp:View runat="server" ID="AbzarSubmit">
+        <asp:View runat="server" ID="MasrafiSubmit">
             <div>
 
-                <h2>ثبت ابزار</h2>
+                <h2>ثبت قطعه مصرفی</h2>
             </div>
             <hr />
 
@@ -213,6 +212,4 @@
 
     </asp:MultiView>
 
-
 </asp:Content>
-

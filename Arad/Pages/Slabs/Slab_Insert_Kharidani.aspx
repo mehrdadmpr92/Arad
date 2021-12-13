@@ -2,6 +2,7 @@
 
 <%@ Register Src="~/Components/Message/Message.ascx" TagPrefix="uc1" TagName="Message" %>
 <%@ Register Src="~/Components/File_Upload/File_Upload.ascx" TagPrefix="uc1" TagName="File_Upload" %>
+<%@ Register Src="~/Components/SlabId_Check/SlabId_Check.ascx" TagPrefix="uc1" TagName="SlabId_Check" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -143,7 +144,7 @@
                     <div class="form-group">
                         <label>شماره قطعه : </label>
                         <span class="icon-case"><i class="fa fa-cogs"></i></span>
-                        <asp:TextBox runat="server" TextMode="Number" name="nom" ID="SlabId_Txt" data-rule="required" />
+                        <uc1:SlabId_Check runat="server" ID="SlabIdCheck_Txt" MaxLength="10" />
                         <div class="validation"></div>
                     </div>
 

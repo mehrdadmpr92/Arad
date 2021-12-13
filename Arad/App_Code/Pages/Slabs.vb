@@ -215,6 +215,12 @@ Public Class Slabs
             Dim myTbl As New Data.DataTable
             Dim number As String = ""
             Dim slabsTotal As String = ""
+            Dim insertStr As String = ""
+            Dim exceptedItems = ""
+
+
+            insertStr += " insert into SlabSubTotal (Assembly_SlabID , SubSlabTedad , SubSlabId)"
+
 
             If slabType = 3 Then
                 Dim x As Integer
@@ -244,22 +250,33 @@ Public Class Slabs
                     slabsTotal += "From SlabSubTotal" + vbCrLf
                     slabsTotal += " Where Assembly_SlabId='" + tbl.Rows(x).Item("شماره قطعه").ToString() + "'" + vbCrLf
 
+
+
+                    If Not exceptedItems.Length = 0 Then
+                        exceptedItems += ","
+                    End If
+                    exceptedItems += " '" + tbl.Rows(x).Item("شماره قطعه").ToString() + "' "
+
                 Next
             End If
 
-            slabsTotal = " select Assembly_slabId , sum(SubSlabTedad), SubSlabId from(" + vbCrLf +
+            slabsTotal = " select Assembly_slabId , sum(SubSlabTedad) as SubSlabTedad, SubSlabId from(" + vbCrLf +
                 slabsTotal + vbCrLf +
-                ") as tbl group by Assembly_SlabId , SubSlabId" + vbCrLf
+                ") as tbl " + vbCrLf
 
 
-            slabsTotal = " delete from SlabSubTotal where Assembly_SlabId=' " + slabId + "' " + vbCrLf + vbCrLf + vbCrLf + "(" + vbCrLf + slabsTotal +
-                vbCrLf + ")"
+            insertStr += slabsTotal + vbCrLf + " where  SubSlabId not in  ( select slabId  from Slabs where SlabId in(" + exceptedItems + ") and slabtype=3 ) 
+                group by Assembly_SlabId , SubSlabId" + vbCrLf
 
+
+            slabsTotal = slabsTotal + vbCrLf +
+                "group by Assembly_SlabId , SubSlabId" + vbCrLf
 
 
             Dim str As String = " begin tran t1 " + vbCrLf
 
             str += slabsTotal + vbCrLf + vbCrLf + vbCrLf + vbCrLf
+            str += insertStr + vbCrLf + vbCrLf + vbCrLf + vbCrLf
             str += " update [Slabs] set SlabMaxVersion='N' where slabId=@slabId " + vbCrLf + vbCrLf
             str += " insert into [Slabs] (SlabMaxVersion , slabId , Version , SlabType ,slabNameEng , slabName , FileName , Description ,  
                     SubmitPersianDate ,Sub_Slabs)" + vbCrLf +
@@ -267,13 +284,13 @@ Public Class Slabs
 
 
             Dim j As Integer
-            str += "declare @SlabId_Num decimal" + vbCrLf
-            str += "Select Max(SlabId_Num) from Slabs where slabId='" + slabId + "'" + vbCrLf + vbCrLf
+            'str += "declare @SlabId_Num decimal" + vbCrLf
+            'str += "Select Max(SlabId_Num) from Slabs where slabId='" + slabId + "'" + vbCrLf + vbCrLf
 
             For j = 0 To tbl.Rows.Count - 1
                 str += "insert Into Slab_Subs(Tedad ,Row , SlabId , SlabID_Num) " + vbCrLf
                 str += "Values(" + tbl.Rows(j).Item("تعداد").ToString + "," + tbl.Rows(j).Item("ردیف").ToString + ", '" +
-                    tbl.Rows(j).Item("شماره قطعه").ToString + "' , @SlabId_Num)" + vbCrLf
+                    tbl.Rows(j).Item("شماره قطعه").ToString + "' , '" + slabId + "')" + vbCrLf
 
                 str += vbCrLf + " "
             Next
@@ -559,6 +576,7 @@ Public Class Slabs
             sqlparams(3) = New SqlParameter("@Description", Description)
             sqlparams(4) = New SqlParameter("@FileName", FileName)
             sqlparams(5) = New SqlParameter("@SlabType", SlabType)
+            'sqlparams(6) = New SqlParameter("@SubmitPersianDate", SubmitPersianDate)
             sqlparams(6) = New SqlParameter
             sqlparams(6).Direction = Data.ParameterDirection.Output
             sqlparams(6).ParameterName = "@output"
@@ -567,7 +585,7 @@ Public Class Slabs
 
             For Each Param In sqlparams
                 connection.Adapter.SelectCommand.Parameters.Add(sqlparams(i))
-                i += 2
+                i += 1
             Next
 
             connection.Adapter.SelectCommand.ExecuteNonQuery()
@@ -575,7 +593,7 @@ Public Class Slabs
             Return sqlparams(6).Value.ToString
 
         Catch ex As Exception
-            Return 2
+            Return 1
         Finally
         End Try
     End Function
@@ -684,7 +702,7 @@ Public Class Slabs
 
             For Each Param In sqlparams
                 connection.Adapter.SelectCommand.Parameters.Add(sqlparams(i))
-                i += 4
+                i += 1
             Next
 
             connection.Adapter.SelectCommand.ExecuteNonQuery()
@@ -692,7 +710,7 @@ Public Class Slabs
             Return sqlparams(6).Value.ToString
 
         Catch ex As Exception
-            Return 4
+            Return 1
         Finally
         End Try
     End Function
@@ -801,7 +819,7 @@ Public Class Slabs
 
             For Each Param In sqlparams
                 connection.Adapter.SelectCommand.Parameters.Add(sqlparams(i))
-                i += 5
+                i += 1
             Next
 
             connection.Adapter.SelectCommand.ExecuteNonQuery()
@@ -809,7 +827,7 @@ Public Class Slabs
             Return sqlparams(6).Value.ToString
 
         Catch ex As Exception
-            Return 5
+            Return 1
         Finally
         End Try
     End Function
@@ -918,7 +936,7 @@ Public Class Slabs
 
             For Each Param In sqlparams
                 connection.Adapter.SelectCommand.Parameters.Add(sqlparams(i))
-                i += 6
+                i += 1
             Next
 
             connection.Adapter.SelectCommand.ExecuteNonQuery()
@@ -926,7 +944,7 @@ Public Class Slabs
             Return sqlparams(6).Value.ToString
 
         Catch ex As Exception
-            Return 6
+            Return 1
         Finally
         End Try
     End Function
