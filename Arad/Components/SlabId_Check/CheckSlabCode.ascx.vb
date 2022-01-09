@@ -88,27 +88,41 @@
 
                 code_Flag_ = False
             ElseIf tbl.Rows.Count > 0 Then
-                'If (Not tbl.Rows(0).Item("Sarparast_Flag").ToString = "Y") And tbl.Rows(0).Item("SType_Text").ToString = 3 Then
-                '    TextBox1.Focus()
-                '    TextBox1.Style.Add("background-color", "Red")
-                '    TextBox1.Style.Add("color", "white")
-                '    Image1.ToolTip = "مجموعه تایید نشده است."
-                '    Image1.Visible = True
-                '    DIV1.Visible = False
-                '    code_Flag_ = False
-                'Else
-                '    Me.Label2.Text = tbl.Rows(0).Item("SName_Farsi").ToString
-                '    Label4.Text = tbl.Rows(0).Item("Sname").ToString
-                '    Label6.Text = tbl.Rows(0).Item("SType").ToString
+                If (tbl.Rows(0).Item("Modir_Flag").ToString = "Y") Then
+                    TextBox1.Focus()
+                    TextBox1.Style.Add("background-color", "Red")
+                    TextBox1.Style.Add("color", "white")
+                    Image1.ToolTip = "این مجموعه مجوز لازم از طرف مدیریت را جهت اصلاح ندارد."
+                    Image1.Visible = True
+                    DIV1.Visible = True
+                    code_Flag_ = False
+                    Me.Label2.Text = tbl.Rows(0).Item("SlabName").ToString
+                    Label4.Text = tbl.Rows(0).Item("SlabNameEng").ToString
+                    Label6.Text = tbl.Rows(0).Item("SlabType").ToString
 
-                '    TextBox1.Style.Add("background-color", "green")
-                '    TextBox1.Style.Add("color", "white")
-                '    Image1.ToolTip = "شماره قطعه وارد شده مجاز می باشد"
-                '    Image1.Visible = True
-                '    DIV1.Visible = True
-                '    code_Flag_ = True
-                'End If
+                ElseIf (Not tbl.Rows(0).Item("Sarparast_Flag").ToString = "Y") And tbl.Rows(0).Item("SlabType").ToString = 3 Then
+                    TextBox1.Focus()
+                    TextBox1.Style.Add("background-color", "Red")
+                    TextBox1.Style.Add("color", "white")
+                    Image1.ToolTip = "مجموعه تایید نشده است."
+                    Image1.Visible = True
+                    DIV1.Visible = True
+                    code_Flag_ = False
+                    Me.Label2.Text = tbl.Rows(0).Item("SlabName").ToString
+                    Label4.Text = tbl.Rows(0).Item("SlabNameEng").ToString
+                    Label6.Text = tbl.Rows(0).Item("SlabType").ToString
 
+                Else
+                    TextBox1.Style.Add("background-color", "green")
+                    TextBox1.Style.Add("color", "white")
+                    Image1.ToolTip = "شماره قطعه وارد شده مجاز می باشد"
+                    Image1.Visible = True
+                    DIV1.Visible = True
+                    code_Flag_ = True
+                    Me.Label2.Text = tbl.Rows(0).Item("SlabName").ToString
+                    Label4.Text = tbl.Rows(0).Item("SlabNameEng").ToString
+                    Label6.Text = tbl.Rows(0).Item("SlabType").ToString
+                End If
 
             Else
                 TextBox1.Focus()
@@ -127,6 +141,7 @@
     Sub restore()
         TextBox1.Style.Add("background-color", "white")
         TextBox1.Style.Add("color", "dimgray")
+        TextBox1.Text = String.Empty
         code_Flag_ = False
         DIV1.Visible = False
     End Sub
@@ -136,7 +151,7 @@
             check_SlabID()
         Else
             Image1.ToolTip = "تعداد کاراکتر های شماره قطعه باید 10 رقمی باشد."
-            Image1.Visible = True
+            Image1.Visible = False
             TextBox1.Focus()
             TextBox1.Style.Add("background-color", "Red")
             TextBox1.Style.Add("color", "white")

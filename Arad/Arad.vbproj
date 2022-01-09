@@ -98,11 +98,20 @@
   <ItemGroup>
     <Compile Include="App_Code\General\DateSelector.vb" />
     <Compile Include="App_Code\General\General.vb" />
+    <Compile Include="App_Code\Pages\Sabetha.vb" />
+    <Compile Include="App_Code\Pages\Products.vb" />
     <Compile Include="Components\SlabId_Check\CheckSlabCode.ascx.designer.vb">
       <DependentUpon>CheckSlabCode.ascx</DependentUpon>
     </Compile>
     <Compile Include="Components\SlabId_Check\CheckSlabCode.ascx.vb">
       <DependentUpon>CheckSlabCode.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Components\SlabId_Check\CheckSlabForProduct.ascx.designer.vb">
+      <DependentUpon>CheckSlabForProduct.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Components\SlabId_Check\CheckSlabForProduct.ascx.vb">
+      <DependentUpon>CheckSlabForProduct.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Components\SlabId_Check\SlabId_Check.ascx.designer.vb">
@@ -118,6 +127,20 @@
     <Compile Include="Components\Validations\IntValidation.ascx.vb">
       <DependentUpon>IntValidation.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Products\New_Product_Insert.aspx.designer.vb">
+      <DependentUpon>New_Product_Insert.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Products\New_Product_Insert.aspx.vb">
+      <DependentUpon>New_Product_Insert.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Sabetha\Fixcher_Insert.aspx.designer.vb">
+      <DependentUpon>Fixcher_Insert.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Sabetha\Fixcher_Insert.aspx.vb">
+      <DependentUpon>Fixcher_Insert.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Pages\Slabs\Slab_Archive.aspx.designer.vb">
       <DependentUpon>Slab_Archive.aspx</DependentUpon>
@@ -189,6 +212,7 @@
     <Content Include="Components\File_Upload\File_Upload.ascx" />
     <Content Include="Components\Message\Message.ascx" />
     <Content Include="Components\SlabId_Check\CheckSlabCode.ascx" />
+    <Content Include="Components\SlabId_Check\CheckSlabForProduct.ascx" />
     <Content Include="Components\SlabId_Check\SlabId_Check.ascx" />
     <Content Include="Components\Validations\IntValidation.ascx" />
     <Content Include="favicon.ico" />
@@ -224,6 +248,8 @@
       <DependentUpon>Slab_Insert_Assembly.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Content Include="Pages\Products\New_Product_Insert.aspx" />
+    <Content Include="Pages\Sabetha\Fixcher_Insert.aspx" />
     <Content Include="Pages\Slabs\Slab_Archive.aspx" />
     <Content Include="Pages\Slabs\Slab_Insert_Abzar.aspx" />
     <Content Include="Pages\Slabs\Slab_Insert_Assembly.aspx" />
@@ -2756,6 +2782,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Uploads\Products\" />
     <Folder Include="Uploads\Slabs\" />
   </ItemGroup>
   <ItemGroup>

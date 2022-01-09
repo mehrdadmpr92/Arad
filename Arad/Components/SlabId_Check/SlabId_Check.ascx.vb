@@ -97,13 +97,13 @@
                 code_Flag_ = True
             End If
         Catch ex As Exception
-
         End Try
     End Sub
     Sub restore()
         Image1.Visible = False
         TextBox1.Style.Add("background-color", "white")
         TextBox1.Style.Add("color", "dimgray")
+        TextBox1.Text = String.Empty
         Lbl_Alert.Text = ""
         code_Flag_ = False
     End Sub

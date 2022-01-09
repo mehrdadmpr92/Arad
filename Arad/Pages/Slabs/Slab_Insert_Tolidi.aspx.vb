@@ -129,10 +129,6 @@
             Me.Session("ErrorMsg") = ex.Message.ToString
         End Try
     End Sub
-
-
-
-
     Protected Sub Return_Btn_Click(sender As Object, e As EventArgs)
         Me.MultiView1.SetActiveView(TolidiSubmit)
     End Sub

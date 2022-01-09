@@ -195,7 +195,6 @@
 
     End Sub
 
-
     Private Sub Load_OPCList_GV(text As String)
         Dim tbl As New Data.DataTable
         Dim opc As New OPC
@@ -244,6 +243,32 @@
 
         Me.MultiView1.SetActiveView(OpcSubmit_check)
         SlabId_Txt.Text = String.Empty
+    End Sub
+
+    Protected Sub Delete_LBtn_Click(sender As Object, e As EventArgs)
+        Try
+            Dim linkBtn As New LinkButton
+            linkBtn = sender
+            Dim Err As String
+            Dim Opc As New OPC
+            Me.ViewState("SlabOpcSubId") = linkBtn.CommandArgument
+
+            Err = Opc.Slab_Opc_Sub_Delete(linkBtn.CommandArgument)
+
+            If Err = 0 Then
+                Me.Message.ErrMessages(Arad.Message.MessageType.Success) = "حذف عملیات قطعه مورد نظر با موفقیت صورت پذیرفت."
+                Load_OPCList_GV(SlabId_Txt.Text)
+            Else
+                Me.Message.ErrMessages(Arad.Message.MessageType.Err) = "حذف عملیات قطعه مورد نظر با مشکل مواجه گردید."
+            End If
+
+
+        Catch ex As Exception
+
+        End Try
+
+
+
     End Sub
 
 

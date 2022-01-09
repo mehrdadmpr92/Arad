@@ -115,6 +115,45 @@ Public Class OPC
         End Try
     End Function
 
+    Public Function Slab_Opc_Sub_Delete(ByVal SlabOpcSubId As Integer)
+
+
+
+        Try
+            Dim connection As New Connection
+            If connection.Connection.State <> ConnectionState.Open Then connection.Connection.Open()
+
+            Dim i As Integer = 0
+            Dim Param As Object
+            connection.Adapter.SelectCommand.Parameters.Clear()
+            connection.Adapter.SelectCommand.Connection = connection.Connection
+
+            connection.Adapter.SelectCommand.CommandType = CommandType.StoredProcedure
+            connection.Adapter.SelectCommand.CommandText = "Slab_Opc_Sub_Delete"
+
+            Dim sqlparams(1) As SqlParameter
+            sqlparams(0) = New SqlParameter("@SlabOpcSubId", SlabOpcSubId)
+            sqlparams(1) = New SqlParameter
+            sqlparams(1).Direction = Data.ParameterDirection.Output
+            sqlparams(1).ParameterName = "@output"
+            sqlparams(1).DbType = Data.DbType.Decimal
+
+
+            For Each Param In sqlparams
+                connection.Adapter.SelectCommand.Parameters.Add(sqlparams(i))
+                i += 1
+            Next
+
+            connection.Adapter.SelectCommand.ExecuteNonQuery()
+            If connection.Connection.State <> ConnectionState.Closed Then connection.Connection.Close()
+            Return sqlparams(1).Value.ToString
+
+        Catch ex As Exception
+            Return 1
+        Finally
+        End Try
+    End Function
+
     Public Function Slab_OPC_Select(ByVal slabId As String)
         Try
             Dim connection As New Connection

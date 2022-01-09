@@ -253,13 +253,12 @@
                     <asp:BoundField DataField="TanzimTime" HeaderText="زمان تنظیم" />
                     <asp:BoundField DataField="SlabTime" HeaderText="زمان قطعه" />
 
-
-                   <%-- <asp:TemplateField>
+                    <asp:TemplateField HeaderText="ویرایش">
                         <ItemTemplate>
-                            <asp:LinkButton ID="Delete_LBtn" runat="server" CommandArgument='<%#Eval("شماره قطعه") %>' Font-Underline="false"
+                            <asp:LinkButton ID="Delete_LBtn" runat="server" CommandArgument='<%#Eval("SlabOpcSubId") %>' Font-Underline="false"
                                 OnClick="Delete_LBtn_Click">حذف</asp:LinkButton>
                         </ItemTemplate>
-                    </asp:TemplateField>--%>
+                    </asp:TemplateField>
 
                 </Columns>
 

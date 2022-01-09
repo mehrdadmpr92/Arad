@@ -56,11 +56,6 @@ Public Class Slab_Insert_Assembly
                 Exit Sub
             End If
 
-            'If (SlabIdCheck_Txt.Text.Length <> 10) Then
-            '    Me.Message.ErrMessages(Arad.Message.MessageType.Err) = "شماره قطعه بایستی ده رقمی باشد."
-            '    Exit Sub
-            'End If
-
 
             tbl = slab.SlabSelect_BySlabId(SlabIdCheck_Txt.Text)
             If (tbl.Rows.Count > 0) Then
